@@ -88,3 +88,6 @@ D:\HK1_nam4\Ptud hd\DoAn_PTUDTTHD\DoAn_PTUDTTHD\obj\Debug\DoAn_PTUDTTHD.csproj.C
 D:\HK1_nam4\Ptud hd\DoAn_PTUDTTHD\DoAn_PTUDTTHD\obj\Debug\DoAn_PTUDTTHD.csproj.CopyComplete
 D:\HK1_nam4\Ptud hd\DoAn_PTUDTTHD\DoAn_PTUDTTHD\obj\Debug\DoAn_PTUDTTHD.dll
 D:\HK1_nam4\Ptud hd\DoAn_PTUDTTHD\DoAn_PTUDTTHD\obj\Debug\DoAn_PTUDTTHD.pdb
+D:\HK1_nam4\Ptud hd\DoAn_PTUDTTHD\DoAn_PTUDTTHD\bin\System.Web.Cors.dll
+D:\HK1_nam4\Ptud hd\DoAn_PTUDTTHD\DoAn_PTUDTTHD\bin\System.Web.Http.Cors.dll
+D:\HK1_nam4\Ptud hd\DoAn_PTUDTTHD\DoAn_PTUDTTHD\bin\System.Web.Http.Cors.xml
