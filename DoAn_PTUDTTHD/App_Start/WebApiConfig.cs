@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-
+using System.Web.Http.Cors;
 namespace DoAn_PTUDTTHD
 {
     public static class WebApiConfig
@@ -23,6 +23,8 @@ namespace DoAn_PTUDTTHD
             json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
             config.Formatters.Remove(config.Formatters.XmlFormatter);
             json.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            var corsAttr = new System.Web.Http.Cors.EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(corsAttr);
         }
     }
 }
