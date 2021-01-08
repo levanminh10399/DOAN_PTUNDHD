@@ -6,35 +6,35 @@ using System.Web;
 
 namespace DoAn_PTUDTTHD.Repository
 {
-    public class LoaiXeRepository
+    public class MucPhiCapBienRepository
     {
-        public List<LoaiXe> findAll()
+        public List<MucPhiCapBien> findAll()
         {
             using (var db = new QLHTGTEntities())
             {
-                List<LoaiXe> loaiXes = db.LoaiXes.ToList();
-                if (loaiXes != null)
-                    return loaiXes;
+                List<MucPhiCapBien> mucPhiCapBiens = db.MucPhiCapBiens.ToList();
+                if (mucPhiCapBiens != null)
+                    return mucPhiCapBiens;
             }
             return null;
         }
-        public LoaiXe findById(int id)
+        public MucPhiCapBien findById(int id)
         {
             using (var db = new QLHTGTEntities())
             {
-                LoaiXe loaiXe = db.LoaiXes.Where(b => b.ID == id).FirstOrDefault();
-                if (loaiXe != null)
-                    return loaiXe;
+                MucPhiCapBien mucPhiCapBien = db.MucPhiCapBiens.Where(b => b.ID == id).FirstOrDefault();
+                if (mucPhiCapBien != null)
+                    return mucPhiCapBien;
             }
             return null;
         }
-        public bool addLoaiXe(LoaiXe loaiXe)
+        public bool addMucPhiCapBien(MucPhiCapBien mucPhiCapBien)
         {
             using (var db = new QLHTGTEntities())
             {
                 try
                 {
-                    db.LoaiXes.Add(loaiXe);
+                    db.MucPhiCapBiens.Add(mucPhiCapBien);
                     db.SaveChanges();
                     return true;
                 }
@@ -46,19 +46,20 @@ namespace DoAn_PTUDTTHD.Repository
 
             }
         }
-        public bool updateLoaiXe(LoaiXe loaiXe)
+        public bool updateMucPhiCapBien(MucPhiCapBien mucPhiCapBien)
         {
             using (var db = new QLHTGTEntities())
             {
                 try
                 {
-                    LoaiXe loaiXeUpdate = db.LoaiXes.Find(loaiXe.ID);
-                    if (loaiXe == null)
+                    MucPhiCapBien mucPhiCapBienUpdate = db.MucPhiCapBiens.Find(mucPhiCapBien.ID);
+                    if (mucPhiCapBien == null)
                         return false;
-                    loaiXeUpdate.NhanHieu = loaiXe.NhanHieu;
-                    loaiXeUpdate.MauXe = loaiXe.MauXe;
-                    loaiXeUpdate.NamSX = loaiXe.NamSX;
-                
+                    mucPhiCapBienUpdate.LoaiXe = mucPhiCapBien.LoaiXe;
+                    mucPhiCapBienUpdate.KhuVuc = mucPhiCapBien.KhuVuc;
+                    mucPhiCapBienUpdate.MucPhi = mucPhiCapBien.MucPhi;
+                    mucPhiCapBienUpdate.GiaToiThieu = mucPhiCapBien.GiaToiThieu;
+                    mucPhiCapBienUpdate.GiaToiDa = mucPhiCapBien.GiaToiDa;
                     db.SaveChanges();
                     return true;
                 }
@@ -69,14 +70,14 @@ namespace DoAn_PTUDTTHD.Repository
             }
 
         }
-        public bool deleteLoaiXe(int id)
+        public bool deleteMucPhiCapBien(int id)
         {
             using (var db = new QLHTGTEntities())
             {
                 try
                 {
-                    LoaiXe loaiXeDel = db.LoaiXes.Find(id);
-                    db.LoaiXes.Remove(loaiXeDel);
+                    MucPhiCapBien mucPhiCapBienDel = db.MucPhiCapBiens.Find(id);
+                    db.MucPhiCapBiens.Remove(mucPhiCapBienDel);
                     db.SaveChanges();
                     return true;
                 }

@@ -37,7 +37,7 @@ namespace DoAn_PTUDTTHD.Controllers
         // DELETE api/xe/1
         public bool Delete(int id)
         {
-            return loaiXeRepository.deleteXe(id);
+            return loaiXeRepository.deleteLoaiXe(id);
         }
     }
 }
