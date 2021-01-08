@@ -20,6 +20,18 @@ namespace DoAn_PTUDTTHD.Repository
             }
                 return null;
         }
+        public NguoiDung findById(int id)
+        {
+            using (var db = new QLHTGTEntities())
+            {
+                NguoiDung nguoiDung = db.NguoiDungs.Where(n => n.ID == id).FirstOrDefault();
+                if (nguoiDung != null)
+                {
+                    return nguoiDung;
+                }
+            }
+            return null;
+        }
         public List<NguoiDung> findAll()
         {
             using (var db = new QLHTGTEntities())
@@ -27,6 +39,16 @@ namespace DoAn_PTUDTTHD.Repository
                 List<NguoiDung> nguoiDungs = db.NguoiDungs.ToList();
                 if (nguoiDungs != null)
                     return nguoiDungs;
+            }
+            return null;
+        }
+        public NguoiDung auth(string username, string password)
+        {
+            using (var db = new QLHTGTEntities())
+            {
+                NguoiDung nguoiDung = db.NguoiDungs.Where(c => c.username == username && c.password == password).FirstOrDefault();
+                if (nguoiDung != null)
+                    return nguoiDung;
             }
             return null;
         }

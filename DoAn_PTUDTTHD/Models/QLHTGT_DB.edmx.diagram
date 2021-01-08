@@ -5,8 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="8576e89ea2194637b05df1de535e46bd" Name="Diagram1">
-        <EntityTypeShape EntityType="QLHTGTModel.BangLai" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLHTGTModel.BienBanViPham" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHTGTModel.BangLai" Width="1.5" PointX="0.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHTGTModel.BienBanViPham" Width="1.5" PointX="4" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QLHTGTModel.CanBo" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QLHTGTModel.HinhThucThanhToan" Width="1.5" PointX="0.75" PointY="16.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QLHTGTModel.HoaDon" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
@@ -14,8 +14,8 @@
         <EntityTypeShape EntityType="QLHTGTModel.LoiViPham" Width="1.5" PointX="7.5" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QLHTGTModel.MucPhiCapBien" Width="1.5" PointX="0.75" PointY="13" IsExpanded="true" />
         <EntityTypeShape EntityType="QLHTGTModel.MucPhiTruocBa" Width="1.5" PointX="0.75" PointY="19.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLHTGTModel.NguoiDung" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLHTGTModel.Xe" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHTGTModel.NguoiDung" Width="1.5" PointX="5.625" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHTGTModel.Xe" Width="1.5" PointX="3.625" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="QLHTGTModel.YeuCauDangKyXe" Width="2.25" PointX="3" PointY="9.75" IsExpanded="true" />
         <AssociationConnector Association="QLHTGTModel.fk_banglai_nguoidung" ManuallyRouted="false" />
         <AssociationConnector Association="QLHTGTModel.fk_Bl_bb" ManuallyRouted="false" />

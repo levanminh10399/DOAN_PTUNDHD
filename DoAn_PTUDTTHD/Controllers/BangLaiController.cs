@@ -15,9 +15,9 @@ namespace DoAn_PTUDTTHD.Controllers
         }
 
         // GET api/BangLai/2
-        public BangLai Get(int id)
+        public BangLai Get(string SoBangLai)
         {
-            return bangLaiRepository.findById(id);
+            return bangLaiRepository.findBySoBangLai(SoBangLai);
         }
 
         // POST api/BangLai

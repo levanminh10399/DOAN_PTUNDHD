@@ -14,7 +14,7 @@ namespace DoAn_PTUDTTHD.Controllers
             return xeRepository.findAll();
         }
 
-        // GET api/xe/2
+        // GET api/xe/2 
         public Xe Get(int id)
         {
             return xeRepository.findById(id);
@@ -38,6 +38,15 @@ namespace DoAn_PTUDTTHD.Controllers
         public bool Delete(int id)
         {
             return xeRepository.deleteXe(id);
+        }
+
+        //Tra cứu biển số xe
+        //Url : api/Xe/TraCuuBienSo/?BienSo=81B1-32135
+        [HttpGet]
+        [Route("api/Xe/TraCuuBienSo")]
+        public Xe Get(string BienSo)
+        {
+            return xeRepository.findByBienSo(BienSo);
         }
     }
 }

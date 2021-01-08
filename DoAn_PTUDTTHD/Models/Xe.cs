@@ -20,6 +20,7 @@ namespace DoAn_PTUDTTHD.Models
         public Nullable<decimal> GiaTien { get; set; }
         public Nullable<int> LoaiXe_id { get; set; }
         public Nullable<int> NguoiDung_id { get; set; }
+        public string BienSo { get; set; }
     
         public virtual LoaiXe LoaiXe { get; set; }
         public virtual NguoiDung NguoiDung { get; set; }

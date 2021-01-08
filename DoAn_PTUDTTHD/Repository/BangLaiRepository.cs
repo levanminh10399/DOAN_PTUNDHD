@@ -92,5 +92,16 @@ namespace DoAn_PTUDTTHD.Repository
                 }
             }
         }
+        public BangLai findBySoBangLai(string SoBangLai)
+        {
+            using (var db = new QLHTGTEntities())
+            {
+                BangLai bangLai = db.BangLais.Where(b => b.SoBangLai == SoBangLai).FirstOrDefault();
+                if (bangLai != null)
+                    return bangLai;
+            }
+            return null;
+        }
+
     }
 }

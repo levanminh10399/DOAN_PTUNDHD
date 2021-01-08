@@ -44,7 +44,8 @@ create table Xe(
 	SoMay varchar(10),
 	GiaTien DECIMAL,
 	LoaiXe_id INT,
-	NguoiDung_id INT
+	NguoiDung_id INT,
+	BienSo varchar(50)
 )
 go
 
@@ -145,3 +146,58 @@ INSERT INTO [dbo].[NguoiDung] ([Ten], [CMND], [GioiTinh], [NgaySinh], [DiaChi], 
 INSERT INTO [dbo].[NguoiDung] ([Ten], [CMND], [GioiTinh], [NgaySinh], [DiaChi], [username], [password]) VALUES (N'test2', N'231144159', N'Nam', N'2021-01-08 08:58:31', N'Tp HCM', N'test2', N'123')
 INSERT INTO [dbo].[BangLai] ([Hang], [NgayCap], [NoiCap], [SoBangLai], [NguoiDung_id]) VALUES (N'A3', NULL, N'TP HCM', N'21312377', 2)
 INSERT INTO [dbo].[BangLai] ([Hang], [NgayCap], [NoiCap], [SoBangLai], [NguoiDung_id]) VALUES (N'B2', NULL, N'TP HCM', N'21312326', 2)
+INSERT INTO dbo.CanBo
+        ( Ten, Bac, username, password )
+VALUES  ( N'CanBo1', -- Ten - nvarchar(50)
+          1, -- Bac - int
+          'canbo1', -- username - varchar(20)
+          '123'  -- password - varchar(20)
+          )INSERT INTO dbo.CanBo
+        ( Ten, Bac, username, password )
+VALUES  ( N'CanBo2', -- Ten - nvarchar(50)
+          2, -- Bac - int
+          'canbo2', -- username - varchar(20)
+          '123'  -- password - varchar(20)
+          )
+INSERT INTO dbo.LoaiXe
+        ( NhanHieu, MauXe, NamSX )
+VALUES  ( 'HonDa', -- NhanHieu - varchar(10)
+          'future', -- MauXe - varchar(20)
+          0  -- NamSX - int
+          )
+		  INSERT INTO dbo.LoaiXe
+        ( NhanHieu, MauXe, NamSX )
+VALUES  ( 'Yamaha', -- NhanHieu - varchar(10)
+          'exciter', -- MauXe - varchar(20)
+          0  -- NamSX - int
+          )
+INSERT INTO dbo.Xe
+        ( SoKhung ,
+          SoMay ,
+          GiaTien ,
+          LoaiXe_id ,
+          NguoiDung_id,
+		  BienSo
+        )
+VALUES  ( '123123' , -- SoKhung - varchar(10)
+          '221ADW' , -- SoMay - varchar(10)
+          40000000 , -- GiaTien - decimal
+           1, -- LoaiXe_id - int
+			1, -- NguoiDung_id - int
+		  '81B1-32135'
+        )
+INSERT INTO dbo.Xe
+        ( SoKhung ,
+          SoMay ,
+          GiaTien ,
+          LoaiXe_id ,
+          NguoiDung_id,
+		  BienSo
+        )
+VALUES  ( '222123' , -- SoKhung - varchar(10)
+          '321ADW' , -- SoMay - varchar(10)
+          50000000 , -- GiaTien - decimal
+           2, -- LoaiXe_id - int
+			2, -- NguoiDung_id - int
+		  '59B1-48123'
+        )

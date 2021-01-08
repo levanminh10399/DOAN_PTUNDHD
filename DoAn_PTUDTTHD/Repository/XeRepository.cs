@@ -93,5 +93,15 @@ namespace DoAn_PTUDTTHD.Repository
                 }
             }
         }
+        public Xe findByBienSo(string BienSo)
+        {
+            using (var db = new QLHTGTEntities())
+            {
+                Xe xe = db.Xes.Where(b => b.BienSo == BienSo).FirstOrDefault();
+                if (xe != null)
+                    return xe;
+            }
+            return null;
+        }
     }
 }

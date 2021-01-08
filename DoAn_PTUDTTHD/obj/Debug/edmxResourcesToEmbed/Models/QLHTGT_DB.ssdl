@@ -101,7 +101,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Ten" Type="nvarchar" MaxLength="50" />
     <Property Name="CMND" Type="varchar" MaxLength="10" />
-    <Property Name="GioiTinh" Type="varchar" MaxLength="5" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="5" />
     <Property Name="NgaySinh" Type="datetime" />
     <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
     <Property Name="username" Type="varchar" MaxLength="20" />
@@ -117,6 +117,7 @@
     <Property Name="GiaTien" Type="decimal" Precision="18" Scale="0" />
     <Property Name="LoaiXe_id" Type="int" />
     <Property Name="NguoiDung_id" Type="int" />
+    <Property Name="BienSo" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="YeuCauDangKyXe">
     <Key>

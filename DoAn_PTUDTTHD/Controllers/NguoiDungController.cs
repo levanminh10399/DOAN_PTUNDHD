@@ -18,10 +18,21 @@ namespace DoAn_PTUDTTHD.Controllers
         {
             return nguoiDungRepository.findAll();
         }
-        //Login
+        //find by cmnd
         public NguoiDung Get(string CMND)
         {
             return nguoiDungRepository.findByCMND(CMND);
         }
+        //login
+        public NguoiDung Post(string username, string password)
+        {
+            return nguoiDungRepository.auth(username, password);
+        }
+        //find by id
+        public NguoiDung Get(int id)
+        {
+            return nguoiDungRepository.findById(id);
+        }
+
     }
 }

@@ -109,7 +109,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="CMND" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="GioiTinh" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="GioiTinh" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
     <Property Name="NgaySinh" Type="DateTime" Precision="3" />
     <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -130,6 +130,7 @@
     <Property Name="NguoiDung_id" Type="Int32" />
     <NavigationProperty Name="LoaiXe" Relationship="Self.fk_xe_loai" FromRole="Xe" ToRole="LoaiXe" />
     <NavigationProperty Name="NguoiDung" Relationship="Self.fk_nguoidung_xe" FromRole="Xe" ToRole="NguoiDung" />
+    <Property Name="BienSo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="YeuCauDangKyXe">
     <Key>

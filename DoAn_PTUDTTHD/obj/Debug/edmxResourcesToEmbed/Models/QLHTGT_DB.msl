@@ -113,6 +113,7 @@
     <EntitySetMapping Name="Xes">
       <EntityTypeMapping TypeName="QLHTGTModel.Xe">
         <MappingFragment StoreEntitySet="Xe">
+          <ScalarProperty Name="BienSo" ColumnName="BienSo" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="SoKhung" ColumnName="SoKhung" />
           <ScalarProperty Name="SoMay" ColumnName="SoMay" />
