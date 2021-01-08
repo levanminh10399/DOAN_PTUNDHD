@@ -16,7 +16,7 @@
         <EntityTypeShape EntityType="QLHTGTModel.MucPhiTruocBa" Width="1.5" PointX="0.75" PointY="19.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QLHTGTModel.NguoiDung" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="QLHTGTModel.Xe" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLHTGTModel.YeuCauDangKyXe" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHTGTModel.YeuCauDangKyXe" Width="2.25" PointX="3" PointY="9.75" IsExpanded="true" />
         <AssociationConnector Association="QLHTGTModel.fk_banglai_nguoidung" ManuallyRouted="false" />
         <AssociationConnector Association="QLHTGTModel.fk_Bl_bb" ManuallyRouted="false" />
         <AssociationConnector Association="QLHTGTModel.fk_bienban_hd" ManuallyRouted="false" />
