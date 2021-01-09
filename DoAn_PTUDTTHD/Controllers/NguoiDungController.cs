@@ -12,6 +12,7 @@ namespace DoAn_PTUDTTHD.Controllers
     public class NguoiDungController : ApiController
     {
         NguoiDungRepository nguoiDungRepository = new NguoiDungRepository();
+        HoaDonRepository hoaDonRepository = new HoaDonRepository();
 
         //get all
         public IEnumerable<NguoiDung> Get()
@@ -32,6 +33,14 @@ namespace DoAn_PTUDTTHD.Controllers
         public NguoiDung Get(int id)
         {
             return nguoiDungRepository.findById(id);
+        }
+
+        //Nộp Phạt
+        [HttpGet]
+        [Route("api/NguoiDung/NopPhat")]
+        public bool Post([FromBody] HoaDon hoaDon)
+        {
+            return hoaDonRepository.addHoaDon(hoaDon);
         }
 
     }

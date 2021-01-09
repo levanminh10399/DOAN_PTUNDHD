@@ -103,5 +103,16 @@ namespace DoAn_PTUDTTHD.Repository
             }
             return null;
         }
+
+        public List<Xe> findByUserId(int UserId)
+        {
+            using (var db = new QLHTGTEntities())
+            {
+                List<Xe> xes = db.Xes.Where(b => b.NguoiDung_id == UserId).ToList();
+                if (xes != null)
+                    return xes;
+            }
+            return null;
+        }
     }
 }
