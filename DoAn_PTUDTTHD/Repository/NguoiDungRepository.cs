@@ -52,5 +52,25 @@ namespace DoAn_PTUDTTHD.Repository
             }
             return null;
         }
+        public bool doiMatKhau(int id, string matkhau)
+        {
+            using (var db = new QLHTGTEntities())
+            {
+                try
+                {
+                    NguoiDung user = db.NguoiDungs.Find(id);
+                    if (user == null)
+                        return false;
+                    user.password = matkhau;
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+
+        }
     }
 }

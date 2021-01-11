@@ -43,5 +43,13 @@ namespace DoAn_PTUDTTHD.Controllers
             return hoaDonRepository.addHoaDon(hoaDon);
         }
 
+        //Đổi mật khẩu
+        [HttpGet]
+        [Route("api/NguoiDung/DoiMatKhau")]
+        public bool DoiMatKhau(int id, string password)
+        {
+            return nguoiDungRepository.doiMatKhau(id, password);
+        }
+
     }
 }
