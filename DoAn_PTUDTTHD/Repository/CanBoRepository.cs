@@ -59,8 +59,9 @@ namespace DoAn_PTUDTTHD.Repository
                 try
                 {
                     db.CanBoes.Add(canBo);
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {
@@ -82,8 +83,9 @@ namespace DoAn_PTUDTTHD.Repository
                     canBoUpdate.Bac = canBo.Bac;
                     canBoUpdate.username = canBo.username;
                     canBoUpdate.password = canBo.password;
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {
@@ -99,8 +101,9 @@ namespace DoAn_PTUDTTHD.Repository
                 {
                     CanBo canBoDel = db.CanBoes.Where(n => n.username == username).FirstOrDefault();
                     db.CanBoes.Remove(canBoDel);
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {

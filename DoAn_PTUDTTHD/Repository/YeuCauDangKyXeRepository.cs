@@ -48,8 +48,9 @@ namespace DoAn_PTUDTTHD.Repository
                     {
                         yeuCauDangKyXe.NguoiDung = nguoiDung;
                         db.YeuCauDangKyXes.Add(yeuCauDangKyXe);
-                        db.SaveChanges();
-                        return true;
+                        if (db.SaveChanges() > 0)
+                            return true;
+                        else return false;
                     }
                     catch
                     {
@@ -80,8 +81,9 @@ namespace DoAn_PTUDTTHD.Repository
                     yeuCauDangKyXeUpdate.MPTruocBa_id = yeuCauDangKyXe.MPTruocBa_id;
                     yeuCauDangKyXeUpdate.MPCapBien_id = yeuCauDangKyXe.MPCapBien_id;
                     yeuCauDangKyXeUpdate.CanBo_id = yeuCauDangKyXe.CanBo_id;
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {
@@ -98,8 +100,9 @@ namespace DoAn_PTUDTTHD.Repository
                 {
                     YeuCauDangKyXe yeuCauDangKyXeDel = db.YeuCauDangKyXes.Find(id);
                     db.YeuCauDangKyXes.Remove(yeuCauDangKyXeDel);
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {

@@ -16,6 +16,7 @@ create table YeuCauDangKyXe(
 	SoMay varchar(10),
 	GiaTien DECIMAL,
 	NgayHen DATETIME,
+	TrangThai varchar(25),
 	HDTruocBa INT,
 	HDCapBien INT,
 	NguoiDung_id INT,
@@ -33,7 +34,7 @@ create table NguoiDung(
 	GioiTinh nvarchar(5),
 	NgaySinh DATETIME,
 	DiaChi nvarchar(100),
-	[username] varchar(20),
+	[username] varchar(20)NOT NULL UNIQUE,
 	[password] varchar(20)
 )
 go
@@ -53,6 +54,7 @@ create table LoaiXe(
 	ID int primary KEY IDENTITY,
 	NhanHieu varchar(10),
 	MauXe varchar(20),
+	Mau varchar(20),
 	NamSX int
 )
 go
@@ -144,8 +146,8 @@ ALTER TABLE dbo.BienBanViPham ADD CONSTRAINT fk_Bl_bb FOREIGN KEY (BangLai_id) R
 -----------------Data
 INSERT INTO [dbo].[NguoiDung] ([Ten], [CMND], [GioiTinh], [NgaySinh], [DiaChi], [username], [password]) VALUES (N'test1', N'231144149', N'Nữ', N'2021-01-08 08:58:31', N'Tp HCM', N'test1', N'123')
 INSERT INTO [dbo].[NguoiDung] ([Ten], [CMND], [GioiTinh], [NgaySinh], [DiaChi], [username], [password]) VALUES (N'test2', N'231144159', N'Nam', N'2021-01-08 08:58:31', N'Tp HCM', N'test2', N'123')
-INSERT INTO [dbo].[BangLai] ([Hang], [NgayCap], [NoiCap], [SoBangLai], [NguoiDung_id]) VALUES (N'A3', NULL, N'TP HCM', N'21312377', 2)
-INSERT INTO [dbo].[BangLai] ([Hang], [NgayCap], [NoiCap], [SoBangLai], [NguoiDung_id]) VALUES (N'B2', NULL, N'TP HCM', N'21312326', 2)
+INSERT INTO [dbo].[BangLai] ([Hang], [NgayCap], [NoiCap], [SoBangLai], [NguoiDung_id]) VALUES (N'A3', N'2020-01-08 08:58:31', N'TP HCM', N'21312377', 2)
+INSERT INTO [dbo].[BangLai] ([Hang], [NgayCap], [NoiCap], [SoBangLai], [NguoiDung_id]) VALUES (N'B2', N'2020-03-08 08:58:31', N'TP HCM', N'21312326', 2)
 INSERT INTO dbo.CanBo
         ( Ten, Bac, username, password )
 VALUES  ( N'CanBo1', -- Ten - nvarchar(50)
@@ -160,16 +162,16 @@ VALUES  ( N'CanBo2', -- Ten - nvarchar(50)
           '123'  -- password - varchar(20)
           )
 INSERT INTO dbo.LoaiXe
-        ( NhanHieu, MauXe, NamSX )
 VALUES  ( 'HonDa', -- NhanHieu - varchar(10)
           'future', -- MauXe - varchar(20)
-          0  -- NamSX - int
+		  'Trắng', --Mau - varchar(20)
+          2000  -- NamSX - int
           )
-		  INSERT INTO dbo.LoaiXe
-        ( NhanHieu, MauXe, NamSX )
+INSERT INTO dbo.LoaiXe
 VALUES  ( 'Yamaha', -- NhanHieu - varchar(10)
           'exciter', -- MauXe - varchar(20)
-          0  -- NamSX - int
+		  'Đen', --Mau - varchar(20)
+          2020  -- NamSX - int
           )
 INSERT INTO dbo.Xe
         ( SoKhung ,
@@ -201,3 +203,25 @@ VALUES  ( '222123' , -- SoKhung - varchar(10)
 			2, -- NguoiDung_id - int
 		  '59B1-48123'
         )
+insert into LoiViPham values(N'Vượt đèn đỏ, đèn vàng',600000,-2);
+insert into LoiViPham values(N'Người đang điều khiển xe máy sử dụng điện thoại di động, thiết bị âm thanh',1000000,-2);
+insert into LoiViPham values(N'Chuyển làn không có tín hiệu báo trước',400000,-1);
+insert into LoiViPham values(N'Dùng tay sử dụng điện thoại di động khi đang điều khiển xe ô tô chạy trên đường',1000000,-2);
+insert into LoiViPham values(N'Đi không đúng phần đường hoặc làn đường quy định',4000000,-3);
+insert into LoiViPham values(N'Đi không đúng theo chỉ dẫn của vạch kẻ đường',200000,-1);
+insert into LoiViPham values(N'Đi ngược chiều của đường một chiều, đi ngược chiều trên đường có biển “Cấm đi ngược chiều”',5000000,-3);
+insert into LoiViPham values(N'Đi vào đường có biển báo cấm phương tiện đang điều khiển',500000,-1);
+insert into LoiViPham values(N'Điều khiển xe ô tô không có gương chiếu hậu',300000,-1);
+insert into LoiViPham values(N'Không đội mũ bảo hiểm hoặc đội nhưng không cài quai đúng quy cách',200000,-1);
+insert into LoiViPham values(N'Không có  giấy phép lái xe',800000,-2);
+
+insert into BienBanViPham values(800000,-2,'2020-01-01 00:00:00.000',null,1);
+insert into BienBanViPham values(1000000,-2,'2020-02-01 00:00:00.000',null,1);
+insert into BienBanViPham values(1000000,-3,'2020-01-03 00:00:00.000',null,2);
+
+insert into DanhSachViPham values(8,1);
+insert into DanhSachViPham values(9,1);
+insert into DanhSachViPham values(2,2);
+insert into DanhSachViPham values(10,3);
+insert into DanhSachViPham values(11,3);
+

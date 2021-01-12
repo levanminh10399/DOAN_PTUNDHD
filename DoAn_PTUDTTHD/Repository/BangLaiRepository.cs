@@ -12,7 +12,7 @@ namespace DoAn_PTUDTTHD.Repository
         {
             using (var db = new QLHTGTEntities())
             {
-                List<BangLai> bangLais = db.BangLais.ToList();
+                List<BangLai> bangLais = db.BangLais.Include("NguoiDung").ToList();
                 if (bangLais != null)
                     return bangLais;
             }
@@ -22,7 +22,7 @@ namespace DoAn_PTUDTTHD.Repository
         {
             using (var db = new QLHTGTEntities())
             {
-                BangLai bangLai = db.BangLais.Where(b => b.ID == id).FirstOrDefault();
+                BangLai bangLai = db.BangLais.Include("NguoiDung").Where(b => b.ID == id).FirstOrDefault();
                 if (bangLai != null)
                     return bangLai;
             }
@@ -39,8 +39,9 @@ namespace DoAn_PTUDTTHD.Repository
                     {
                         bangLai.NguoiDung = nguoiDung;
                         db.BangLais.Add(bangLai);
-                        db.SaveChanges();
-                        return true;
+                        if (db.SaveChanges() > 0)
+                            return true;
+                        else return false;
                     }
                     catch
                     {
@@ -65,8 +66,9 @@ namespace DoAn_PTUDTTHD.Repository
                     bangLaiUpdate.NguoiDung_id = bangLai.NguoiDung_id;
                     bangLaiUpdate.NoiCap = bangLai.NoiCap;
                     bangLaiUpdate.SoBangLai = bangLai.SoBangLai;
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {
@@ -83,8 +85,9 @@ namespace DoAn_PTUDTTHD.Repository
                 {
                     BangLai bangLaiDel = db.BangLais.Find(id);
                     db.BangLais.Remove(bangLaiDel);
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {
@@ -96,7 +99,7 @@ namespace DoAn_PTUDTTHD.Repository
         {
             using (var db = new QLHTGTEntities())
             {
-                BangLai bangLai = db.BangLais.Where(b => b.SoBangLai == SoBangLai).FirstOrDefault();
+                BangLai bangLai = db.BangLais.Include("NguoiDung").Where(b => b.SoBangLai == SoBangLai).FirstOrDefault();
                 if (bangLai != null)
                     return bangLai;
             }

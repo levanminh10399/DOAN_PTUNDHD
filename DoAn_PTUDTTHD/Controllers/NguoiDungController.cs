@@ -34,7 +34,11 @@ namespace DoAn_PTUDTTHD.Controllers
         {
             return nguoiDungRepository.findById(id);
         }
-
+        //Đăng ký
+        public bool Post([FromBody] NguoiDung nguoiDung)
+        {
+            return nguoiDungRepository.addNguoiDung(nguoiDung);
+        }
         //Nộp Phạt
         [HttpGet]
         [Route("api/NguoiDung/NopPhat")]
