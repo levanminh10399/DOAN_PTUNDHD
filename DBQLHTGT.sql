@@ -144,8 +144,8 @@ ALTER TABLE dbo.HoaDon ADD CONSTRAINT fk_hoadon_ht FOREIGN KEY (HinhThucThanhToa
 ALTER TABLE dbo.BienBanViPham ADD CONSTRAINT fk_Bl_bb FOREIGN KEY (BangLai_id) REFERENCES dbo.BangLai (ID)
 
 -----------------Data
-INSERT INTO [dbo].[NguoiDung] ([Ten], [CMND], [GioiTinh], [NgaySinh], [DiaChi], [username], [password]) VALUES (N'test1', N'231144149', N'Nữ', N'2021-01-08 08:58:31', N'Tp.HCM', N'test1', N'123')
-INSERT INTO [dbo].[NguoiDung] ([Ten], [CMND], [GioiTinh], [NgaySinh], [DiaChi], [username], [password]) VALUES (N'test2', N'231144159', N'Nam', N'2021-01-08 08:58:31', N'Tp.HCM', N'test2', N'123')
+INSERT INTO [dbo].[NguoiDung] ([Ten], [CMND], [GioiTinh], [NgaySinh], [DiaChi], [username], [password]) VALUES (N'test1', N'231144149', N'Nữ', N'2021-01-08 08:58:31', N'Tp HCM', N'test1', N'123')
+INSERT INTO [dbo].[NguoiDung] ([Ten], [CMND], [GioiTinh], [NgaySinh], [DiaChi], [username], [password]) VALUES (N'test2', N'231144159', N'Nam', N'2021-01-08 08:58:31', N'Tp HCM', N'test2', N'123')
 INSERT INTO [dbo].[BangLai] ([Hang], [NgayCap], [NoiCap], [SoBangLai], [NguoiDung_id]) VALUES (N'A3', N'2020-01-08 08:58:31', N'TP HCM', N'21312377', 2)
 INSERT INTO [dbo].[BangLai] ([Hang], [NgayCap], [NoiCap], [SoBangLai], [NguoiDung_id]) VALUES (N'B2', N'2020-03-08 08:58:31', N'TP HCM', N'21312326', 2)
 INSERT INTO dbo.CanBo
@@ -162,15 +162,15 @@ VALUES  ( N'CanBo2', -- Ten - nvarchar(50)
           '123'  -- password - varchar(20)
           )
 INSERT INTO dbo.LoaiXe
-VALUES  ( 'HONDA', -- NhanHieu - varchar(10)
-          'FUTURE', -- MauXe - varchar(20)
-		  'WHITE', --Mau - varchar(20)
+VALUES  ( 'HonDa', -- NhanHieu - varchar(10)
+          'future', -- MauXe - varchar(20)
+		  'Trắng', --Mau - varchar(20)
           2000  -- NamSX - int
           )
 INSERT INTO dbo.LoaiXe
-VALUES  ( 'YAMAHA', -- NhanHieu - varchar(10)
-          'EXCITER', -- MauXe - varchar(20)
-		  'BLACK', --Mau - varchar(20)
+VALUES  ( 'Yamaha', -- NhanHieu - varchar(10)
+          'exciter', -- MauXe - varchar(20)
+		  'Đen', --Mau - varchar(20)
           2020  -- NamSX - int
           )
 INSERT INTO dbo.Xe
@@ -203,7 +203,9 @@ VALUES  ( '222123' , -- SoKhung - varchar(10)
 			2, -- NguoiDung_id - int
 		  '59B1-48123'
         )
+<<<<<<< HEAD
 
+<<<<<<< HEAD
 --INSERT INTO dbo.LoiViPham
 --        ( LoiViPham, MucPhat, DiemTru )
 --VALUES  ( N'Vượt đèn đỏ', -- LoiViPham - nvarchar(max)
@@ -290,6 +292,99 @@ VALUES  ( '222123' , -- SoKhung - varchar(10)
 --VALUES  ( 1, -- LoiViPham_id - int
 --          2  -- BienBanViPham_id - int
 --          )
+=======
+
+
+
+----------------------- 13/1/2020 data biên bản vi phạm---------------------
+INSERT INTO dbo.LoiViPham
+        ( LoiViPham, MucPhat, DiemTru )
+VALUES  ( N'Vượt đèn đỏ', -- LoiViPham - nvarchar(max)
+          1000000, -- MucPhat - decimal
+          20  -- DiemTru - int
+          )
+INSERT INTO dbo.LoiViPham
+        ( LoiViPham, MucPhat, DiemTru )
+VALUES  ( N'Không đội mũ bảo hiểm', -- LoiViPham - nvarchar(max)
+          1000000, -- MucPhat - decimal
+          20  -- DiemTru - int
+          )
+INSERT INTO dbo.LoiViPham
+        ( LoiViPham, MucPhat, DiemTru )
+VALUES  ( N'Không có gương chiếu hậu', -- LoiViPham - nvarchar(max)
+          1000000, -- MucPhat - decimal
+          20  -- DiemTru - int
+          )
+INSERT INTO dbo.HinhThucThanhToan
+        ( HTTT )
+VALUES  ( N'Thẻ tính dụng'  -- HTTT - nvarchar(20)
+          )
+INSERT INTO dbo.HoaDon
+        ( ThanhTien ,
+          NgayThanhToan ,
+          HinhThucThanhToan_id
+        )
+VALUES  ( 10000000 , -- ThanhTien - decimal
+          GETDATE() , -- NgayThanhToan - datetime
+          1  -- HinhThucThanhToan_id - int
+        )
+INSERT INTO dbo.BienBanViPham
+        ( TongTien ,
+          TongDiemTru ,
+          ThoiGianViPham ,
+          HDNopPhat ,
+          BangLai_id
+        )
+VALUES  ( 10000000 , -- TongTien - decimal
+          50 , -- TongDiemTru - int
+          GETDATE() , -- ThoiGianViPham - datetime
+          1 , -- HDNopPhat - int
+          2  -- BangLai_id - int
+        )
+INSERT dbo.DanhSachViPham
+        ( LoiViPham_id, BienBanViPham_id )
+VALUES  ( 1, -- LoiViPham_id - int
+          1  -- BienBanViPham_id - int
+          )
+INSERT dbo.DanhSachViPham
+        ( LoiViPham_id, BienBanViPham_id )
+VALUES  ( 2, -- LoiViPham_id - int
+          1  -- BienBanViPham_id - int
+          )
+INSERT dbo.DanhSachViPham
+        ( LoiViPham_id, BienBanViPham_id )
+VALUES  ( 3, -- LoiViPham_id - int
+          1  -- BienBanViPham_id - int
+          )
+INSERT INTO dbo.HoaDon
+        ( ThanhTien ,
+          NgayThanhToan ,
+          HinhThucThanhToan_id
+        )
+VALUES  ( 10000000 , -- ThanhTien - decimal
+          GETDATE() , -- NgayThanhToan - datetime
+          1  -- HinhThucThanhToan_id - int
+        )
+INSERT INTO dbo.BienBanViPham
+        ( TongTien ,
+          TongDiemTru ,
+          ThoiGianViPham ,
+          HDNopPhat ,
+          BangLai_id
+        )
+VALUES  ( 10000000 , -- TongTien - decimal
+          50 , -- TongDiemTru - int
+          GETDATE() , -- ThoiGianViPham - datetime
+          2 , -- HDNopPhat - int
+          3  -- BangLai_id - int
+        )
+INSERT dbo.DanhSachViPham
+        ( LoiViPham_id, BienBanViPham_id )
+VALUES  ( 1, -- LoiViPham_id - int
+          2  -- BienBanViPham_id - int
+          )
+=======
+>>>>>>> parent of e8a0c6f... thêm 1 api get LoaiXe by properties
 insert into LoiViPham values(N'Vượt đèn đỏ, đèn vàng',600000,-2);
 insert into LoiViPham values(N'Người đang điều khiển xe máy sử dụng điện thoại di động, thiết bị âm thanh',1000000,-2);
 insert into LoiViPham values(N'Chuyển làn không có tín hiệu báo trước',400000,-1);
@@ -312,3 +407,4 @@ insert into DanhSachViPham values(2,2);
 insert into DanhSachViPham values(10,3);
 insert into DanhSachViPham values(11,3);
 
+>>>>>>> f4f84e7748b2b70ea6312cd64ffcbba9fc9ac9c9

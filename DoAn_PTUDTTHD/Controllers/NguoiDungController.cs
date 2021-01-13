@@ -43,9 +43,20 @@ namespace DoAn_PTUDTTHD.Controllers
         {
             return nguoiDungRepository.findByCMND(username);
         }
+<<<<<<< HEAD
 
         //add nguoiDung
         //POST 
+=======
+<<<<<<< HEAD
+        //add nguoiDung
+        public bool Post ([FromBody] NguoiDung nguoiDung)
+        {
+            return nguoiDungRepository.addNguoiDung(nguoiDung);
+        }
+=======
+        //Đăng ký
+>>>>>>> parent of e8a0c6f... thêm 1 api get LoaiXe by properties
         public bool Post([FromBody] NguoiDung nguoiDung)
         {
             return nguoiDungRepository.addNguoiDung(nguoiDung);
@@ -76,8 +87,20 @@ namespace DoAn_PTUDTTHD.Controllers
             return hoaDonRepository.addHoaDon(hoaDon);
         }
 
+<<<<<<< HEAD
 
 
 
+=======
+        //Đổi mật khẩu
+        [HttpGet]
+        [Route("api/NguoiDung/DoiMatKhau")]
+        public bool DoiMatKhau(int id, string password)
+        {
+            return nguoiDungRepository.doiMatKhau(id, password);
+        }
+
+>>>>>>> f4f84e7748b2b70ea6312cd64ffcbba9fc9ac9c9
+>>>>>>> parent of e8a0c6f... thêm 1 api get LoaiXe by properties
     }
 }

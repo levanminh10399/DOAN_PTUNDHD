@@ -28,16 +28,6 @@ namespace DoAn_PTUDTTHD.Repository
             }
             return null;
         }
-        public LoaiXe findByProperties(string nhanhieu, string mauxe,string mau, int namsx)
-        {
-            using (var db = new QLHTGTEntities())
-            {
-                LoaiXe loaiXe = db.LoaiXes.Where(c => c.NhanHieu == nhanhieu && c.MauXe == mauxe && c.NamSX == namsx && c.Mau == mau).FirstOrDefault();
-                if (loaiXe != null)
-                    return loaiXe;
-            }
-            return null;
-        }
         public bool addLoaiXe(LoaiXe loaiXe)
         {
             using (var db = new QLHTGTEntities())

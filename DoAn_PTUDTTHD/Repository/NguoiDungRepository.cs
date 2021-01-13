@@ -46,7 +46,11 @@ namespace DoAn_PTUDTTHD.Repository
         {
             using (var db = new QLHTGTEntities())
             {
+<<<<<<< HEAD
+                List<NguoiDung> nguoiDungs = db.NguoiDungs.Include("BangLais").ToList();
+=======
                 List<NguoiDung> nguoiDungs = db.NguoiDungs.Include("BangLais").Include("YeuCauDangKyXes").ToList();
+>>>>>>> f4f84e7748b2b70ea6312cd64ffcbba9fc9ac9c9
                 if (nguoiDungs != null)
                     return nguoiDungs;
             }
@@ -107,14 +111,34 @@ namespace DoAn_PTUDTTHD.Repository
                 }
             }
         }
+<<<<<<< HEAD
         public bool updateNguoiDung(NguoiDung nguoiDung)
+=======
+<<<<<<< HEAD
+        public bool addNguoiDung(NguoiDung nguoiDung)
         {
+
+=======
+        public bool doiMatKhau(int id, string matkhau)
+>>>>>>> parent of e8a0c6f... thêm 1 api get LoaiXe by properties
+        {
+>>>>>>> f4f84e7748b2b70ea6312cd64ffcbba9fc9ac9c9
             using (var db = new QLHTGTEntities())
             {
                 try
                 {
+<<<<<<< HEAD
                     NguoiDung nguoiDungUpdate = db.NguoiDungs.Where(n => n.username == nguoiDung.username).FirstOrDefault();
                     if (nguoiDungUpdate == null)
+=======
+<<<<<<< HEAD
+                    db.NguoiDungs.Add(nguoiDung);
+                    db.SaveChanges();
+                    return true;
+=======
+                    NguoiDung user = db.NguoiDungs.Find(id);
+                    if (user == null)
+>>>>>>> parent of e8a0c6f... thêm 1 api get LoaiXe by properties
                         return false;
                     nguoiDungUpdate.Ten = nguoiDung.Ten;
                     nguoiDungUpdate.CMND = nguoiDung.CMND;
@@ -124,12 +148,20 @@ namespace DoAn_PTUDTTHD.Repository
                     if (db.SaveChanges() > 0)
                         return true;
                     else return false;
+>>>>>>> f4f84e7748b2b70ea6312cd64ffcbba9fc9ac9c9
                 }
                 catch
                 {
                     return false;
                 }
             }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> f4f84e7748b2b70ea6312cd64ffcbba9fc9ac9c9
+>>>>>>> parent of e8a0c6f... thêm 1 api get LoaiXe by properties
         }
 
 
