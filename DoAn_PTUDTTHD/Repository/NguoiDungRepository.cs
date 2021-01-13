@@ -1,8 +1,6 @@
 ﻿using DoAn_PTUDTTHD.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace DoAn_PTUDTTHD.Repository
 {
@@ -13,6 +11,18 @@ namespace DoAn_PTUDTTHD.Repository
             using (var db = new QLHTGTEntities())
             {
                 NguoiDung nguoiDung = db.NguoiDungs.Include("BangLais").Include("YeuCauDangKyXes").Where(n => n.CMND == CMND).FirstOrDefault();
+                if (nguoiDung != null)
+                {
+                    return nguoiDung;
+                }
+            }
+            return null;
+        }
+        public NguoiDung findByUsername(string username)
+        {
+            using (var db = new QLHTGTEntities())
+            {
+                NguoiDung nguoiDung = db.NguoiDungs.Include("BangLais").Include("YeuCauDangKyXes").Where(n => n.username == username).FirstOrDefault();
                 if (nguoiDung != null)
                 {
                     return nguoiDung;
@@ -42,11 +52,24 @@ namespace DoAn_PTUDTTHD.Repository
             }
             return null;
         }
-        public bool addNguoiDung(NguoiDung nguoiDung)
+        public NguoiDung auth(NguoiDung _nguoiDung)
         {
-
             using (var db = new QLHTGTEntities())
             {
+                NguoiDung nguoiDung = db.NguoiDungs.Where(c => c.username == _nguoiDung.username && c.password == _nguoiDung.password).FirstOrDefault();
+                if (nguoiDung != null)
+                    return nguoiDung;
+            }
+            return null;
+        }
+
+        public bool addNguoiDung(NguoiDung nguoiDung)
+        {
+            using (var db = new QLHTGTEntities())
+            {
+                NguoiDung ndung = findByUsername(nguoiDung.username);
+                if (ndung != null)
+                    return false;
                 try
                 {
                     db.NguoiDungs.Add(nguoiDung);
@@ -60,26 +83,44 @@ namespace DoAn_PTUDTTHD.Repository
                 }
             }
         }
-        public NguoiDung auth(string username, string password)
+
+        public bool doiMatKhau(NguoiDung _nguoiDung)
         {
+
             using (var db = new QLHTGTEntities())
             {
-                NguoiDung nguoiDung = db.NguoiDungs.Include("BangLais").Include("YeuCauDangKyXes").Where(c => c.username == username && c.password == password).FirstOrDefault();
-                if (nguoiDung != null)
-                    return nguoiDung;
+                try
+                {
+
+                    NguoiDung user = db.NguoiDungs.Where(n => n.username == _nguoiDung.username).FirstOrDefault();
+                    if (user == null)
+                        return false;
+                    user.password = _nguoiDung.password;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
+
+                }
+                catch
+                {
+                    return false;
+                }
             }
-            return null;
         }
-        public bool doiMatKhau(int id, string matkhau)
+        public bool updateNguoiDung(NguoiDung nguoiDung)
         {
             using (var db = new QLHTGTEntities())
             {
                 try
                 {
-                    NguoiDung user = db.NguoiDungs.Find(id);
-                    if (user == null)
+                    NguoiDung nguoiDungUpdate = db.NguoiDungs.Where(n => n.username == nguoiDung.username).FirstOrDefault();
+                    if (nguoiDungUpdate == null)
                         return false;
-                    user.password = matkhau;
+                    nguoiDungUpdate.Ten = nguoiDung.Ten;
+                    nguoiDungUpdate.CMND = nguoiDung.CMND;
+                    nguoiDungUpdate.GioiTinh = nguoiDung.GioiTinh;
+                    nguoiDungUpdate.NgaySinh = nguoiDung.NgaySinh;
+                    nguoiDungUpdate.DiaChi = nguoiDung.DiaChi;
                     if (db.SaveChanges() > 0)
                         return true;
                     else return false;
@@ -89,7 +130,9 @@ namespace DoAn_PTUDTTHD.Repository
                     return false;
                 }
             }
-
         }
+
+
+
     }
 }

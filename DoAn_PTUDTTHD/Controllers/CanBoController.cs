@@ -20,11 +20,11 @@ namespace DoAn_PTUDTTHD.Controllers
 
         // login, if return == null -> DANG NHAP THAT BAI
         //  url: api/canbo/login?username=Canbo1&password=123
-        [HttpGet]
+        [HttpPost]
         [Route("api/Canbo/login")]
-        public CanBo Login(string username, string password)
+        public CanBo Login([FromBody] CanBo canBo)
         {
-            return canBoRepository.auth(username, password);
+            return canBoRepository.auth(canBo);
         }
 
         //Tra cứu thông tin cán bộ
@@ -38,11 +38,11 @@ namespace DoAn_PTUDTTHD.Controllers
 
         //Đổi mật khẩu can bo
         // Url : api/canbo/doimatkhau?username=test1&oldPassword=123&newPassword=12345
-        [HttpGet]
+        [HttpPut]
         [Route("api/canbo/DoiMatKhau")]
-        public bool DoiMatKhau(string username, string oldPassword, string newPassword)
+        public bool DoiMatKhau([FromBody] CanBo canBo)
         {
-            return canBoRepository.doiMatKhau(username, oldPassword, newPassword);
+            return canBoRepository.doiMatKhau(canBo);
         }
 
         //add can bo
@@ -53,7 +53,7 @@ namespace DoAn_PTUDTTHD.Controllers
         }
 
         //PUT api/canbo/update
-        [HttpGet]
+        [HttpPut]
         [Route("api/Canbo/update")]
         public bool Put([FromBody] CanBo canBo)
         {
