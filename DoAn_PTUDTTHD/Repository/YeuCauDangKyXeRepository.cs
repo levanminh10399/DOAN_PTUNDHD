@@ -36,13 +36,10 @@ namespace DoAn_PTUDTTHD.Repository
                 LoaiXe loaiXe = db.LoaiXes.Where(n => n.ID == yeuCauDangKyXe.LoaiXe_id).FirstOrDefault();
                 MucPhiTruocBa mucPhiTruocBa = db.MucPhiTruocBas.Where(n => n.ID == yeuCauDangKyXe.MPTruocBa_id).FirstOrDefault();
                 MucPhiCapBien mucPhiCapBien = db.MucPhiCapBiens.Where(n => n.ID == yeuCauDangKyXe.MPCapBien_id).FirstOrDefault();
-                CanBo canBo = db.CanBoes.Where(n => n.ID == yeuCauDangKyXe.CanBo_id).FirstOrDefault();
                 if (nguoiDung != null &&
-                    loaiXe != null 
-                    //&&
-                    //mucPhiTruocBa != null &&
-                    //mucPhiCapBien != null &&
-                    //canBo != null
+                    loaiXe != null &&
+                    mucPhiTruocBa != null 
+                    //&&mucPhiCapBien != null
                     )
                 {
                     try

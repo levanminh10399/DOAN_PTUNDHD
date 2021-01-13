@@ -52,6 +52,7 @@ go
 
 create table LoaiXe(
 	ID int primary KEY IDENTITY,
+	IsXeOto bit,
 	NhanHieu varchar(10),
 	MauXe varchar(20),
 	Mau varchar(20),
@@ -144,8 +145,8 @@ ALTER TABLE dbo.HoaDon ADD CONSTRAINT fk_hoadon_ht FOREIGN KEY (HinhThucThanhToa
 ALTER TABLE dbo.BienBanViPham ADD CONSTRAINT fk_Bl_bb FOREIGN KEY (BangLai_id) REFERENCES dbo.BangLai (ID)
 
 -----------------Data
-INSERT INTO [dbo].[NguoiDung] ([Ten], [CMND], [GioiTinh], [NgaySinh], [DiaChi], [username], [password]) VALUES (N'test1', N'231144149', N'Nữ', N'2021-01-08 08:58:31', N'Tp HCM', N'test1', N'123')
-INSERT INTO [dbo].[NguoiDung] ([Ten], [CMND], [GioiTinh], [NgaySinh], [DiaChi], [username], [password]) VALUES (N'test2', N'231144159', N'Nam', N'2021-01-08 08:58:31', N'Tp HCM', N'test2', N'123')
+INSERT INTO [dbo].[NguoiDung] ([Ten], [CMND], [GioiTinh], [NgaySinh], [DiaChi], [username], [password]) VALUES (N'test1', N'231144149', N'Nữ', N'2021-01-08 08:58:31', N'Tp.HCM', N'test1', N'123')
+INSERT INTO [dbo].[NguoiDung] ([Ten], [CMND], [GioiTinh], [NgaySinh], [DiaChi], [username], [password]) VALUES (N'test2', N'231144159', N'Nam', N'2021-01-08 08:58:31', N'Tp.HCM', N'test2', N'123')
 INSERT INTO [dbo].[BangLai] ([Hang], [NgayCap], [NoiCap], [SoBangLai], [NguoiDung_id]) VALUES (N'A3', N'2020-01-08 08:58:31', N'TP HCM', N'21312377', 2)
 INSERT INTO [dbo].[BangLai] ([Hang], [NgayCap], [NoiCap], [SoBangLai], [NguoiDung_id]) VALUES (N'B2', N'2020-03-08 08:58:31', N'TP HCM', N'21312326', 2)
 INSERT INTO dbo.CanBo
@@ -162,15 +163,24 @@ VALUES  ( N'CanBo2', -- Ten - nvarchar(50)
           '123'  -- password - varchar(20)
           )
 INSERT INTO dbo.LoaiXe
-VALUES  ( 'HonDa', -- NhanHieu - varchar(10)
-          'future', -- MauXe - varchar(20)
-		  'Trắng', --Mau - varchar(20)
+VALUES  (	0, -- khong phai xe oto - bit
+		  'HONDA', -- NhanHieu - varchar(10)
+		  'FUTURE', -- MauXe - varchar(20)
+		  'WHITE', --Mau - varchar(20)
           2000  -- NamSX - int
           )
 INSERT INTO dbo.LoaiXe
-VALUES  ( 'Yamaha', -- NhanHieu - varchar(10)
-          'exciter', -- MauXe - varchar(20)
-		  'Đen', --Mau - varchar(20)
+VALUES  (	0, -- khong phai xe oto - bit
+		  'YAMAHA', -- NhanHieu - varchar(10)
+          'EXCITER', -- MauXe - varchar(20)
+		  'BLACK', --Mau - varchar(20)
+          2020  -- NamSX - int
+          )
+INSERT INTO dbo.LoaiXe
+VALUES  (	1, -- la xe oto - bit
+		  'TOYOTA', -- NhanHieu - varchar(10)
+          'WIGO', -- MauXe - varchar(20)
+		  'GRAY', --Mau - varchar(20)
           2020  -- NamSX - int
           )
 INSERT INTO dbo.Xe
@@ -202,6 +212,21 @@ VALUES  ( '222123' , -- SoKhung - varchar(10)
            2, -- LoaiXe_id - int
 			2, -- NguoiDung_id - int
 		  '59B1-48123'
+        )
+INSERT INTO dbo.Xe
+        ( SoKhung ,
+          SoMay ,
+          GiaTien ,
+          LoaiXe_id ,
+          NguoiDung_id,
+		  BienSo
+        )
+VALUES  ( '314125' , -- SoKhung - varchar(10)
+          '951SDW' , -- SoMay - varchar(10)
+          2000000000 , -- GiaTien - decimal
+           3, -- LoaiXe_id - int
+			1, -- NguoiDung_id - int
+		  '30E-921.15'
         )
 
 --INSERT INTO dbo.LoiViPham
@@ -285,7 +310,21 @@ insert into LoiViPham values(N'Điều khiển xe ô tô không có gương chi�
 insert into LoiViPham values(N'Không đội mũ bảo hiểm hoặc đội nhưng không cài quai đúng quy cách',200000,-1);
 insert into LoiViPham values(N'Không có  giấy phép lái xe',800000,-2);
 
-insert into BienBanViPham values(800000,-2,'2020-01-01 00:00:00.000',null,1);
+INSERT INTO dbo.HinhThucThanhToan
+        ( HTTT )
+VALUES  ( N'Thẻ tính dụng'  -- HTTT - nvarchar(20)
+          );
+INSERT INTO dbo.HoaDon
+        ( ThanhTien ,
+          NgayThanhToan ,
+          HinhThucThanhToan_id
+        )
+VALUES  ( 800000 , -- ThanhTien - decimal
+          GETDATE() , -- NgayThanhToan - datetime
+          1  -- HinhThucThanhToan_id - int
+        )
+
+insert into BienBanViPham values(800000,-2,'2020-01-01 00:00:00.000',1,1);
 insert into BienBanViPham values(1000000,-2,'2020-02-01 00:00:00.000',null,1);
 insert into BienBanViPham values(1000000,-3,'2020-01-03 00:00:00.000',null,2);
 
@@ -294,6 +333,13 @@ insert into DanhSachViPham values(9,1);
 insert into DanhSachViPham values(2,2);
 insert into DanhSachViPham values(10,3);
 insert into DanhSachViPham values(11,3);
+
+insert into MucPhiTruocBa values (0,1,5);
+insert into MucPhiTruocBa values (0,2,5);
+insert into MucPhiTruocBa values (0,3,2);
+insert into MucPhiTruocBa values (1,1,12);
+insert into MucPhiTruocBa values (1,2,12);
+insert into MucPhiTruocBa values (1,3,10);
 
 insert into MucPhiTruocBa values (0,1,5);
 insert into MucPhiTruocBa values (0,2,5);

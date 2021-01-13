@@ -22,6 +22,7 @@ namespace DoAn_PTUDTTHD.Models
         }
     
         public int ID { get; set; }
+        public Nullable<bool> IsXeOto { get; set; }
         public string NhanHieu { get; set; }
         public string MauXe { get; set; }
         public string Mau { get; set; }
