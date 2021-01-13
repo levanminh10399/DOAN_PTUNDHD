@@ -1,8 +1,6 @@
 ﻿using DoAn_PTUDTTHD.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace DoAn_PTUDTTHD.Repository
 {
@@ -18,7 +16,7 @@ namespace DoAn_PTUDTTHD.Repository
                     return nguoiDung;
                 }
             }
-                return null;
+            return null;
         }
         public NguoiDung findById(int id)
         {
@@ -36,7 +34,7 @@ namespace DoAn_PTUDTTHD.Repository
         {
             using (var db = new QLHTGTEntities())
             {
-                List<NguoiDung> nguoiDungs = db.NguoiDungs.ToList();
+                List<NguoiDung> nguoiDungs = db.NguoiDungs.Include("BangLais").ToList();
                 if (nguoiDungs != null)
                     return nguoiDungs;
             }
@@ -51,6 +49,23 @@ namespace DoAn_PTUDTTHD.Repository
                     return nguoiDung;
             }
             return null;
+        }
+        public bool addNguoiDung(NguoiDung nguoiDung)
+        {
+
+            using (var db = new QLHTGTEntities())
+            {
+                try
+                {
+                    db.NguoiDungs.Add(nguoiDung);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
         }
     }
 }

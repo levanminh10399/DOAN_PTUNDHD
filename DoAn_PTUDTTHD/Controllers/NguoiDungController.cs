@@ -33,6 +33,10 @@ namespace DoAn_PTUDTTHD.Controllers
         {
             return nguoiDungRepository.findById(id);
         }
-
+        //add nguoiDung
+        public bool Post ([FromBody] NguoiDung nguoiDung)
+        {
+            return nguoiDungRepository.addNguoiDung(nguoiDung);
+        }
     }
 }
