@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="QLHTGTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="QLHTGTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BangLai">
           <Key>
             <PropertyRef Name="ID" />
@@ -398,7 +398,8 @@
             <End Role="Xe" EntitySet="Xe" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLHTGTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -468,10 +469,10 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NhanHieu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="MauXe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Mau" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="NamSX" Type="Int32" />
           <NavigationProperty Name="YeuCauDangKyXes" Relationship="Self.fk_loaixe_yc" FromRole="LoaiXe" ToRole="YeuCauDangKyXe" />
           <NavigationProperty Name="Xes" Relationship="Self.fk_xe_loai" FromRole="LoaiXe" ToRole="Xe" />
-          <Property Name="Mau" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="LoiViPham">
           <Key>
@@ -531,9 +532,9 @@
           <Property Name="GiaTien" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="LoaiXe_id" Type="Int32" />
           <Property Name="NguoiDung_id" Type="Int32" />
+          <Property Name="BienSo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="LoaiXe" Relationship="Self.fk_xe_loai" FromRole="Xe" ToRole="LoaiXe" />
           <NavigationProperty Name="NguoiDung" Relationship="Self.fk_nguoidung_xe" FromRole="Xe" ToRole="NguoiDung" />
-          <Property Name="BienSo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="YeuCauDangKyXe">
           <Key>
@@ -544,6 +545,7 @@
           <Property Name="SoMay" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="GiaTien" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="NgayHen" Type="DateTime" Precision="3" />
+          <Property Name="TrangThai" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="HDTruocBa" Type="Int32" />
           <Property Name="HDCapBien" Type="Int32" />
           <Property Name="NguoiDung_id" Type="Int32" />
@@ -558,7 +560,6 @@
           <NavigationProperty Name="MucPhiCapBien" Relationship="Self.fk_mpcb" FromRole="YeuCauDangKyXe" ToRole="MucPhiCapBien" />
           <NavigationProperty Name="MucPhiTruocBa" Relationship="Self.fk_mptb" FromRole="YeuCauDangKyXe" ToRole="MucPhiTruocBa" />
           <NavigationProperty Name="NguoiDung" Relationship="Self.fk_nguoidung_yc" FromRole="YeuCauDangKyXe" ToRole="NguoiDung" />
-          <Property Name="TrangThai" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="fk_banglai_nguoidung">
           <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
@@ -852,10 +853,10 @@
           <EntitySetMapping Name="LoaiXes">
             <EntityTypeMapping TypeName="QLHTGTModel.LoaiXe">
               <MappingFragment StoreEntitySet="LoaiXe">
-                <ScalarProperty Name="Mau" ColumnName="Mau" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NhanHieu" ColumnName="NhanHieu" />
                 <ScalarProperty Name="MauXe" ColumnName="MauXe" />
+                <ScalarProperty Name="Mau" ColumnName="Mau" />
                 <ScalarProperty Name="NamSX" ColumnName="NamSX" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -909,25 +910,25 @@
           <EntitySetMapping Name="Xes">
             <EntityTypeMapping TypeName="QLHTGTModel.Xe">
               <MappingFragment StoreEntitySet="Xe">
-                <ScalarProperty Name="BienSo" ColumnName="BienSo" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="SoKhung" ColumnName="SoKhung" />
                 <ScalarProperty Name="SoMay" ColumnName="SoMay" />
                 <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
                 <ScalarProperty Name="LoaiXe_id" ColumnName="LoaiXe_id" />
                 <ScalarProperty Name="NguoiDung_id" ColumnName="NguoiDung_id" />
+                <ScalarProperty Name="BienSo" ColumnName="BienSo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="YeuCauDangKyXes">
             <EntityTypeMapping TypeName="QLHTGTModel.YeuCauDangKyXe">
               <MappingFragment StoreEntitySet="YeuCauDangKyXe">
-                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="SoKhung" ColumnName="SoKhung" />
                 <ScalarProperty Name="SoMay" ColumnName="SoMay" />
                 <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
                 <ScalarProperty Name="NgayHen" ColumnName="NgayHen" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
                 <ScalarProperty Name="HDTruocBa" ColumnName="HDTruocBa" />
                 <ScalarProperty Name="HDCapBien" ColumnName="HDCapBien" />
                 <ScalarProperty Name="NguoiDung_id" ColumnName="NguoiDung_id" />

@@ -18,6 +18,7 @@ namespace DoAn_PTUDTTHD.Models
         public QLHTGTEntities()
             : base("name=QLHTGTEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

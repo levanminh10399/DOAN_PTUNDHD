@@ -24,8 +24,8 @@ namespace DoAn_PTUDTTHD.Models
         public int ID { get; set; }
         public string NhanHieu { get; set; }
         public string MauXe { get; set; }
-        public Nullable<int> NamSX { get; set; }
         public string Mau { get; set; }
+        public Nullable<int> NamSX { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<YeuCauDangKyXe> YeuCauDangKyXes { get; set; }

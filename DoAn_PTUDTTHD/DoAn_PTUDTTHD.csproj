@@ -193,55 +193,55 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BangLai.cs">
-      <DependentUpon>QLHTGT_DB.tt</DependentUpon>
+      <DependentUpon>QLHTGT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BienBanViPham.cs">
-      <DependentUpon>QLHTGT_DB.tt</DependentUpon>
+      <DependentUpon>QLHTGT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CanBo.cs">
-      <DependentUpon>QLHTGT_DB.tt</DependentUpon>
+      <DependentUpon>QLHTGT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HinhThucThanhToan.cs">
-      <DependentUpon>QLHTGT_DB.tt</DependentUpon>
+      <DependentUpon>QLHTGT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HoaDon.cs">
-      <DependentUpon>QLHTGT_DB.tt</DependentUpon>
+      <DependentUpon>QLHTGT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiXe.cs">
-      <DependentUpon>QLHTGT_DB.tt</DependentUpon>
+      <DependentUpon>QLHTGT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoiViPham.cs">
-      <DependentUpon>QLHTGT_DB.tt</DependentUpon>
+      <DependentUpon>QLHTGT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MucPhiCapBien.cs">
-      <DependentUpon>QLHTGT_DB.tt</DependentUpon>
+      <DependentUpon>QLHTGT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MucPhiTruocBa.cs">
-      <DependentUpon>QLHTGT_DB.tt</DependentUpon>
+      <DependentUpon>QLHTGT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NguoiDung.cs">
-      <DependentUpon>QLHTGT_DB.tt</DependentUpon>
+      <DependentUpon>QLHTGT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QLHTGT_DB.Context.cs">
+    <Compile Include="Models\QLHTGT.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLHTGT_DB.Context.tt</DependentUpon>
+      <DependentUpon>QLHTGT.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QLHTGT_DB.cs">
+    <Compile Include="Models\QLHTGT.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLHTGT_DB.tt</DependentUpon>
+      <DependentUpon>QLHTGT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QLHTGT_DB.Designer.cs">
+    <Compile Include="Models\QLHTGT.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLHTGT_DB.edmx</DependentUpon>
+      <DependentUpon>QLHTGT.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Xe.cs">
-      <DependentUpon>QLHTGT_DB.tt</DependentUpon>
+      <DependentUpon>QLHTGT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\YeuCauDangKyXe.cs">
-      <DependentUpon>QLHTGT_DB.tt</DependentUpon>
+      <DependentUpon>QLHTGT.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BangLaiRepository.cs" />
@@ -266,15 +266,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\QLHTGT_DB.Context.tt">
+    <Content Include="Models\QLHTGT.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLHTGT_DB.edmx</DependentUpon>
-      <LastGenOutput>QLHTGT_DB.Context.cs</LastGenOutput>
+      <DependentUpon>QLHTGT.edmx</DependentUpon>
+      <LastGenOutput>QLHTGT.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\QLHTGT_DB.tt">
+    <Content Include="Models\QLHTGT.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLHTGT_DB.edmx</DependentUpon>
-      <LastGenOutput>QLHTGT_DB.cs</LastGenOutput>
+      <DependentUpon>QLHTGT.edmx</DependentUpon>
+      <LastGenOutput>QLHTGT.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -297,12 +297,12 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Models\QLHTGT_DB.edmx">
+    <EntityDeploy Include="Models\QLHTGT.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QLHTGT_DB.Designer.cs</LastGenOutput>
+      <LastGenOutput>QLHTGT.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\QLHTGT_DB.edmx.diagram">
-      <DependentUpon>QLHTGT_DB.edmx</DependentUpon>
+    <Content Include="Models\QLHTGT.edmx.diagram">
+      <DependentUpon>QLHTGT.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
