@@ -34,13 +34,6 @@ namespace DoAn_PTUDTTHD.Controllers
         {
             return nguoiDungRepository.findById(id);
         }
-<<<<<<< HEAD
-        //add nguoiDung
-        public bool Post ([FromBody] NguoiDung nguoiDung)
-        {
-            return nguoiDungRepository.addNguoiDung(nguoiDung);
-        }
-=======
         //Đăng ký
         public bool Post([FromBody] NguoiDung nguoiDung)
         {
@@ -61,7 +54,5 @@ namespace DoAn_PTUDTTHD.Controllers
         {
             return nguoiDungRepository.doiMatKhau(id, password);
         }
-
->>>>>>> f4f84e7748b2b70ea6312cd64ffcbba9fc9ac9c9
     }
 }

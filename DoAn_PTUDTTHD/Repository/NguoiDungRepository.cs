@@ -1,6 +1,8 @@
 ﻿using DoAn_PTUDTTHD.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 
 namespace DoAn_PTUDTTHD.Repository
 {
@@ -34,11 +36,7 @@ namespace DoAn_PTUDTTHD.Repository
         {
             using (var db = new QLHTGTEntities())
             {
-<<<<<<< HEAD
-                List<NguoiDung> nguoiDungs = db.NguoiDungs.Include("BangLais").ToList();
-=======
                 List<NguoiDung> nguoiDungs = db.NguoiDungs.Include("BangLais").Include("YeuCauDangKyXes").ToList();
->>>>>>> f4f84e7748b2b70ea6312cd64ffcbba9fc9ac9c9
                 if (nguoiDungs != null)
                     return nguoiDungs;
             }
@@ -72,23 +70,12 @@ namespace DoAn_PTUDTTHD.Repository
             }
             return null;
         }
-<<<<<<< HEAD
-        public bool addNguoiDung(NguoiDung nguoiDung)
-        {
-
-=======
         public bool doiMatKhau(int id, string matkhau)
         {
->>>>>>> f4f84e7748b2b70ea6312cd64ffcbba9fc9ac9c9
             using (var db = new QLHTGTEntities())
             {
                 try
                 {
-<<<<<<< HEAD
-                    db.NguoiDungs.Add(nguoiDung);
-                    db.SaveChanges();
-                    return true;
-=======
                     NguoiDung user = db.NguoiDungs.Find(id);
                     if (user == null)
                         return false;
@@ -96,17 +83,13 @@ namespace DoAn_PTUDTTHD.Repository
                     if (db.SaveChanges() > 0)
                         return true;
                     else return false;
->>>>>>> f4f84e7748b2b70ea6312cd64ffcbba9fc9ac9c9
                 }
                 catch
                 {
                     return false;
                 }
             }
-<<<<<<< HEAD
-=======
 
->>>>>>> f4f84e7748b2b70ea6312cd64ffcbba9fc9ac9c9
         }
     }
 }
