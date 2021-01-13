@@ -28,6 +28,18 @@ namespace DoAn_PTUDTTHD.Repository
             }
             return null;
         }
+
+        internal MucPhiTruocBa findByProperties(bool loaixe, int khuvuc)
+        {
+            using (var db = new QLHTGTEntities())
+            {
+                MucPhiTruocBa mucPhiTruocBa = db.MucPhiTruocBas.Where(b => b.LoaiXe == loaixe && b.KhuVuc == khuvuc).FirstOrDefault();
+                if (mucPhiTruocBa != null)
+                    return mucPhiTruocBa;
+            }
+            return null;
+        }
+
         public bool addMucPhiTruocBa(MucPhiTruocBa mucPhiTruocBa)
         {
             using (var db = new QLHTGTEntities())

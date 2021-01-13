@@ -28,6 +28,17 @@ namespace DoAn_PTUDTTHD.Repository
             }
             return null;
         }
+        public MucPhiCapBien findByProperties(bool loaixe,decimal giatien,int khuvuc)
+        {
+            using (var db = new QLHTGTEntities())
+            {
+                MucPhiCapBien mucPhiCapBien = db.MucPhiCapBiens.Where(b => b.LoaiXe == loaixe && b.KhuVuc == khuvuc 
+                                                                        && b.GiaToiDa>= giatien && b.GiaToiThieu<giatien).FirstOrDefault();
+                if (mucPhiCapBien != null)
+                    return mucPhiCapBien;
+            }
+            return null;
+        }
         public bool addMucPhiCapBien(MucPhiCapBien mucPhiCapBien)
         {
             using (var db = new QLHTGTEntities())

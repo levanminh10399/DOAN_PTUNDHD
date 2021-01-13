@@ -21,7 +21,10 @@ namespace DoAn_PTUDTTHD.Controllers
         }
 
         // POST api/loaixe
-
+        public MucPhiTruocBa Get(bool loaixe, int khuvuc)
+        {
+            return mucPhiTruocBaRepository.findByProperties(loaixe, khuvuc);
+        }
         public bool Post([FromBody] MucPhiTruocBa mucPhiTruocBa)
         {
             return mucPhiTruocBaRepository.addMucPhiTruocBa(mucPhiTruocBa);

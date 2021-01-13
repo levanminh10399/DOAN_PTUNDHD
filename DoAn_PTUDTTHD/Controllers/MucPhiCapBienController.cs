@@ -19,6 +19,10 @@ namespace DoAn_PTUDTTHD.Controllers
         {
             return mucPhiCapBienRepository.findById(id);
         }
+        public MucPhiCapBien Get(bool loaixe, decimal giatien, int khuvuc)
+        {
+            return mucPhiCapBienRepository.findByProperties(loaixe, giatien, khuvuc);
+        }
 
         // POST api/loaixe
 
