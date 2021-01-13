@@ -26,7 +26,26 @@ namespace DoAn_PTUDTTHD.Repository
             return null;
 
         }
-        
+        public List<BienBanViPham> findByNguoiDung(int nguoiDung_id)
+        {
+            using (var db = new QLHTGTEntities())
+            {
+                List<BangLai> bangLais = db.BangLais.Where(b => b.NguoiDung_id == nguoiDung_id).ToList();
+                List<BienBanViPham> bienBanViPhams = new List<BienBanViPham>();
+                foreach (BangLai bangLai in bangLais)
+                {
+                    List<BienBanViPham> bienBanViPhamsOfBangLai = db.BienBanViPhams.Where(b => b.BangLai_id == bangLai.ID).ToList();
+                    foreach (BienBanViPham bienBanViPham in bienBanViPhamsOfBangLai)
+                    {
+                        if (bienBanViPham != null)
+                            bienBanViPhams.Add(bienBanViPham);
+                    }
+                }
+                if (bienBanViPhams != null)
+                    return bienBanViPhams;
+                return null;
+            }
+        }
 
     }
 }

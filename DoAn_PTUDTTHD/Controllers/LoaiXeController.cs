@@ -19,7 +19,11 @@ namespace DoAn_PTUDTTHD.Controllers
         {
             return loaiXeRepository.findById(id);
         }
-
+        // GET api/loaixe?
+        public LoaiXe Get(string nhanhieu, string mauxe, string mau, int namsx)
+        {
+            return loaiXeRepository.findByProperties(nhanhieu, mauxe, mau, namsx);
+        }
         // POST api/loaixe
 
         public bool Post([FromBody] LoaiXe loaiXe)

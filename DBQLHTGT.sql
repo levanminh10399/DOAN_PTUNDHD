@@ -203,9 +203,7 @@ VALUES  ( '222123' , -- SoKhung - varchar(10)
 			2, -- NguoiDung_id - int
 		  '59B1-48123'
         )
-<<<<<<< HEAD
 
-<<<<<<< HEAD
 --INSERT INTO dbo.LoiViPham
 --        ( LoiViPham, MucPhat, DiemTru )
 --VALUES  ( N'Vượt đèn đỏ', -- LoiViPham - nvarchar(max)
@@ -226,7 +224,7 @@ VALUES  ( '222123' , -- SoKhung - varchar(10)
 --          )
 --INSERT INTO dbo.HinhThucThanhToan
 --        ( HTTT )
---VALUES  ( N'Thẻ tín dụng'  -- HTTT - nvarchar(20)
+--VALUES  ( N'Thẻ tính dụng'  -- HTTT - nvarchar(20)
 --          )
 --INSERT INTO dbo.HoaDon
 --        ( ThanhTien ,
@@ -274,117 +272,7 @@ VALUES  ( '222123' , -- SoKhung - varchar(10)
 --          GETDATE() , -- NgayThanhToan - datetime
 --          1  -- HinhThucThanhToan_id - int
 --        )
---INSERT INTO dbo.BienBanViPham
---        ( TongTien ,
---          TongDiemTru ,
---          ThoiGianViPham ,
---          HDNopPhat ,
---          BangLai_id
---        )
---VALUES  ( 10000000 , -- TongTien - decimal
---          50 , -- TongDiemTru - int
---          GETDATE() , -- ThoiGianViPham - datetime
---          2 , -- HDNopPhat - int
---          3  -- BangLai_id - int
---        )
---INSERT dbo.DanhSachViPham
---        ( LoiViPham_id, BienBanViPham_id )
---VALUES  ( 1, -- LoiViPham_id - int
---          2  -- BienBanViPham_id - int
---          )
-=======
 
-
-
------------------------ 13/1/2020 data biên bản vi phạm---------------------
-INSERT INTO dbo.LoiViPham
-        ( LoiViPham, MucPhat, DiemTru )
-VALUES  ( N'Vượt đèn đỏ', -- LoiViPham - nvarchar(max)
-          1000000, -- MucPhat - decimal
-          20  -- DiemTru - int
-          )
-INSERT INTO dbo.LoiViPham
-        ( LoiViPham, MucPhat, DiemTru )
-VALUES  ( N'Không đội mũ bảo hiểm', -- LoiViPham - nvarchar(max)
-          1000000, -- MucPhat - decimal
-          20  -- DiemTru - int
-          )
-INSERT INTO dbo.LoiViPham
-        ( LoiViPham, MucPhat, DiemTru )
-VALUES  ( N'Không có gương chiếu hậu', -- LoiViPham - nvarchar(max)
-          1000000, -- MucPhat - decimal
-          20  -- DiemTru - int
-          )
-INSERT INTO dbo.HinhThucThanhToan
-        ( HTTT )
-VALUES  ( N'Thẻ tính dụng'  -- HTTT - nvarchar(20)
-          )
-INSERT INTO dbo.HoaDon
-        ( ThanhTien ,
-          NgayThanhToan ,
-          HinhThucThanhToan_id
-        )
-VALUES  ( 10000000 , -- ThanhTien - decimal
-          GETDATE() , -- NgayThanhToan - datetime
-          1  -- HinhThucThanhToan_id - int
-        )
-INSERT INTO dbo.BienBanViPham
-        ( TongTien ,
-          TongDiemTru ,
-          ThoiGianViPham ,
-          HDNopPhat ,
-          BangLai_id
-        )
-VALUES  ( 10000000 , -- TongTien - decimal
-          50 , -- TongDiemTru - int
-          GETDATE() , -- ThoiGianViPham - datetime
-          1 , -- HDNopPhat - int
-          2  -- BangLai_id - int
-        )
-INSERT dbo.DanhSachViPham
-        ( LoiViPham_id, BienBanViPham_id )
-VALUES  ( 1, -- LoiViPham_id - int
-          1  -- BienBanViPham_id - int
-          )
-INSERT dbo.DanhSachViPham
-        ( LoiViPham_id, BienBanViPham_id )
-VALUES  ( 2, -- LoiViPham_id - int
-          1  -- BienBanViPham_id - int
-          )
-INSERT dbo.DanhSachViPham
-        ( LoiViPham_id, BienBanViPham_id )
-VALUES  ( 3, -- LoiViPham_id - int
-          1  -- BienBanViPham_id - int
-          )
-INSERT INTO dbo.HoaDon
-        ( ThanhTien ,
-          NgayThanhToan ,
-          HinhThucThanhToan_id
-        )
-VALUES  ( 10000000 , -- ThanhTien - decimal
-          GETDATE() , -- NgayThanhToan - datetime
-          1  -- HinhThucThanhToan_id - int
-        )
-INSERT INTO dbo.BienBanViPham
-        ( TongTien ,
-          TongDiemTru ,
-          ThoiGianViPham ,
-          HDNopPhat ,
-          BangLai_id
-        )
-VALUES  ( 10000000 , -- TongTien - decimal
-          50 , -- TongDiemTru - int
-          GETDATE() , -- ThoiGianViPham - datetime
-          2 , -- HDNopPhat - int
-          3  -- BangLai_id - int
-        )
-INSERT dbo.DanhSachViPham
-        ( LoiViPham_id, BienBanViPham_id )
-VALUES  ( 1, -- LoiViPham_id - int
-          2  -- BienBanViPham_id - int
-          )
-=======
->>>>>>> parent of e8a0c6f... thêm 1 api get LoaiXe by properties
 insert into LoiViPham values(N'Vượt đèn đỏ, đèn vàng',600000,-2);
 insert into LoiViPham values(N'Người đang điều khiển xe máy sử dụng điện thoại di động, thiết bị âm thanh',1000000,-2);
 insert into LoiViPham values(N'Chuyển làn không có tín hiệu báo trước',400000,-1);
@@ -407,4 +295,9 @@ insert into DanhSachViPham values(2,2);
 insert into DanhSachViPham values(10,3);
 insert into DanhSachViPham values(11,3);
 
->>>>>>> f4f84e7748b2b70ea6312cd64ffcbba9fc9ac9c9
+insert into MucPhiTruocBa values (0,1,5);
+insert into MucPhiTruocBa values (0,2,5);
+insert into MucPhiTruocBa values (0,3,2);
+insert into MucPhiTruocBa values (1,1,12);
+insert into MucPhiTruocBa values (1,2,12);
+insert into MucPhiTruocBa values (1,3,10);
