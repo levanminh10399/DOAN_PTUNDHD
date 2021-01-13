@@ -35,8 +35,9 @@ namespace DoAn_PTUDTTHD.Repository
                 try
                 {
                     db.MucPhiCapBiens.Add(mucPhiCapBien);
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {
@@ -60,8 +61,9 @@ namespace DoAn_PTUDTTHD.Repository
                     mucPhiCapBienUpdate.MucPhi = mucPhiCapBien.MucPhi;
                     mucPhiCapBienUpdate.GiaToiThieu = mucPhiCapBien.GiaToiThieu;
                     mucPhiCapBienUpdate.GiaToiDa = mucPhiCapBien.GiaToiDa;
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {
@@ -78,8 +80,9 @@ namespace DoAn_PTUDTTHD.Repository
                 {
                     MucPhiCapBien mucPhiCapBienDel = db.MucPhiCapBiens.Find(id);
                     db.MucPhiCapBiens.Remove(mucPhiCapBienDel);
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {

@@ -35,8 +35,9 @@ namespace DoAn_PTUDTTHD.Repository
                 try
                 {
                     db.LoaiXes.Add(loaiXe);
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {
@@ -58,9 +59,9 @@ namespace DoAn_PTUDTTHD.Repository
                     loaiXeUpdate.NhanHieu = loaiXe.NhanHieu;
                     loaiXeUpdate.MauXe = loaiXe.MauXe;
                     loaiXeUpdate.NamSX = loaiXe.NamSX;
-                
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {
@@ -77,8 +78,9 @@ namespace DoAn_PTUDTTHD.Repository
                 {
                     LoaiXe loaiXeDel = db.LoaiXes.Find(id);
                     db.LoaiXes.Remove(loaiXeDel);
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {

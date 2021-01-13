@@ -39,8 +39,9 @@ namespace DoAn_PTUDTTHD.Repository
                     {
                         hoaDon.HinhThucThanhToan = hinhThucThanhToan;
                         db.HoaDons.Add(hoaDon);
-                        db.SaveChanges();
-                        return true;
+                        if (db.SaveChanges() > 0)
+                            return true;
+                        else return false;
                     }
                     catch
                     {
@@ -63,9 +64,9 @@ namespace DoAn_PTUDTTHD.Repository
                     hoaDonUpdate.ThanhTien = hoaDon.ThanhTien;
                     hoaDonUpdate.NgayThanhToan = hoaDon.NgayThanhToan;
                     hoaDonUpdate.HinhThucThanhToan_id = hoaDon.HinhThucThanhToan_id;
-    
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {
@@ -82,8 +83,9 @@ namespace DoAn_PTUDTTHD.Repository
                 {
                     HoaDon hoaDonDel = db.HoaDons.Find(id);
                     db.HoaDons.Remove(hoaDonDel);
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {

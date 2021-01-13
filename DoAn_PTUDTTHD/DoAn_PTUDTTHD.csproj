@@ -179,13 +179,16 @@
     <Compile Include="Controllers\BienBanViPhamController.cs" />
     <Compile Include="Controllers\CanBoController.cs" />
     <Compile Include="Controllers\HinhThucThanhToanController.cs" />
+    <Compile Include="Controllers\HoaDonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiXeController.cs" />
+    <Compile Include="Controllers\LoiViPhamController.cs" />
     <Compile Include="Controllers\MucPhiCapBienController.cs" />
     <Compile Include="Controllers\MucPhiTruocBaController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\XeController.cs" />
+    <Compile Include="Controllers\YeuCauDangKyXeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -245,11 +248,14 @@
     <Compile Include="Repository\BienBanViPhamRepository.cs" />
     <Compile Include="Repository\CanBoRepository.cs" />
     <Compile Include="Repository\HinhThucThanhToanRepository.cs" />
+    <Compile Include="Repository\HoaDonRepository.cs" />
     <Compile Include="Repository\LoaiXeRepository.cs" />
+    <Compile Include="Repository\LoiViPhamRepository.cs" />
     <Compile Include="Repository\MucPhiCapBienRepository.cs" />
     <Compile Include="Repository\MucPhiTruocBaRepository.cs" />
     <Compile Include="Repository\NguoiDungRepository.cs" />
     <Compile Include="Repository\XeRepository.cs" />
+    <Compile Include="Repository\YeuCauDangKyXeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -321,6 +327,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\LoiViPham\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

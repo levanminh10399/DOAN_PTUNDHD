@@ -35,8 +35,9 @@ namespace DoAn_PTUDTTHD.Repository
                 try
                 {
                     db.MucPhiTruocBas.Add(mucPhiTruocBa);
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {
@@ -58,9 +59,9 @@ namespace DoAn_PTUDTTHD.Repository
                     mucPhiTruocBaUpdate.LoaiXe = mucPhiTruocBa.LoaiXe;
                     mucPhiTruocBaUpdate.KhuVuc = mucPhiTruocBa.KhuVuc;
                     mucPhiTruocBaUpdate.MucPhi = mucPhiTruocBa.MucPhi;
-
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {
@@ -77,8 +78,9 @@ namespace DoAn_PTUDTTHD.Repository
                 {
                     MucPhiTruocBa mucPhiTruocBaDel = db.MucPhiTruocBas.Find(id);
                     db.MucPhiTruocBas.Remove(mucPhiTruocBaDel);
-                    db.SaveChanges();
-                    return true;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
                 }
                 catch
                 {
