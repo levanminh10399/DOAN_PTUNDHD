@@ -17,8 +17,12 @@ namespace DoAn_PTUDTTHD.Controllers
         {
             return canBoRepository.findAll();
         }
-        //login
-        public CanBo Post(string username,string password)
+
+        // login, if return == null -> DANG NHAP THAT BAI
+        //  url: api/canbo/login?username=Canbo1&password=123
+        [HttpGet]
+        [Route("api/Canbo/login")]
+        public CanBo Login(string username, string password)
         {
             return canBoRepository.auth(username, password);
         }
@@ -31,15 +35,26 @@ namespace DoAn_PTUDTTHD.Controllers
         {
             return canBoRepository.findByUsername(username);
         }
-        
-        
+
+        //Đổi mật khẩu can bo
+        // Url : api/canbo/doimatkhau?username=test1&oldPassword=123&newPassword=12345
+        [HttpGet]
+        [Route("api/canbo/DoiMatKhau")]
+        public bool DoiMatKhau(string username, string oldPassword, string newPassword)
+        {
+            return canBoRepository.doiMatKhau(username, oldPassword, newPassword);
+        }
+
+        //add can bo
         // POST api/canbo
         public bool Post([FromBody] CanBo canBo)
         {
             return canBoRepository.addCanBo(canBo);
         }
 
-        //PUT api/canbo
+        //PUT api/canbo/update
+        [HttpGet]
+        [Route("api/Canbo/update")]
         public bool Put([FromBody] CanBo canBo)
         {
             return canBoRepository.updateCanBo(canBo);
