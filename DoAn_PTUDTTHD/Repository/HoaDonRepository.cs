@@ -28,7 +28,7 @@ namespace DoAn_PTUDTTHD.Repository
             }
             return null;
         }
-        public bool addHoaDon(HoaDon hoaDon)
+        public HoaDon addHoaDon(HoaDon hoaDon)
         {
             using (var db = new QLHTGTEntities())
             {
@@ -40,17 +40,17 @@ namespace DoAn_PTUDTTHD.Repository
                         hoaDon.HinhThucThanhToan = hinhThucThanhToan;
                         db.HoaDons.Add(hoaDon);
                         if (db.SaveChanges() > 0)
-                            return true;
-                        else return false;
+                            return hoaDon;
+                        else return null;
                     }
                     catch
                     {
-                        return false;
+                        return null;
                     }
                 }
 
             }
-            return false;
+            return null;
         }
         public bool updateHoaDon(HoaDon hoaDon)
         {

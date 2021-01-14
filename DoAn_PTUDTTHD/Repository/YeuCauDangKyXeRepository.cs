@@ -28,7 +28,7 @@ namespace DoAn_PTUDTTHD.Repository
             }
             return null;
         }
-        public bool addYeuCauDangKyXe(YeuCauDangKyXe yeuCauDangKyXe)
+        public YeuCauDangKyXe addYeuCauDangKyXe(YeuCauDangKyXe yeuCauDangKyXe)
         {
             using (var db = new QLHTGTEntities())
             {
@@ -38,8 +38,8 @@ namespace DoAn_PTUDTTHD.Repository
                 MucPhiCapBien mucPhiCapBien = db.MucPhiCapBiens.Where(n => n.ID == yeuCauDangKyXe.MPCapBien_id).FirstOrDefault();
                 if (nguoiDung != null &&
                     loaiXe != null &&
-                    mucPhiTruocBa != null 
-                    //&&mucPhiCapBien != null
+                    mucPhiTruocBa != null &&
+                    mucPhiCapBien != null
                     )
                 {
                     try
@@ -47,17 +47,16 @@ namespace DoAn_PTUDTTHD.Repository
                         yeuCauDangKyXe.NguoiDung = nguoiDung;
                         db.YeuCauDangKyXes.Add(yeuCauDangKyXe);
                         if (db.SaveChanges() > 0)
-                            return true;
-                        else return false;
+                            return yeuCauDangKyXe;
+                        else return null;
                     }
                     catch
                     {
-                        return false;
+                        return null;
                     }
                 }
-
             }
-            return false;
+            return null;
         }
         public bool updateYeuCauDangKyXe(YeuCauDangKyXe yeuCauDangKyXe)
         {
@@ -72,6 +71,7 @@ namespace DoAn_PTUDTTHD.Repository
                     yeuCauDangKyXeUpdate.SoMay = yeuCauDangKyXe.SoMay;
                     yeuCauDangKyXeUpdate.GiaTien = yeuCauDangKyXe.GiaTien;
                     yeuCauDangKyXeUpdate.NgayHen = yeuCauDangKyXe.NgayHen;
+                    yeuCauDangKyXeUpdate.TrangThai = yeuCauDangKyXe.TrangThai;
                     yeuCauDangKyXeUpdate.HDTruocBa = yeuCauDangKyXe.HDTruocBa;
                     yeuCauDangKyXeUpdate.HDCapBien = yeuCauDangKyXe.HDCapBien;
                     yeuCauDangKyXeUpdate.NguoiDung_id = yeuCauDangKyXe.NguoiDung_id;

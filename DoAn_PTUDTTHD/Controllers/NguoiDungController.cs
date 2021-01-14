@@ -42,7 +42,7 @@ namespace DoAn_PTUDTTHD.Controllers
         //Nộp Phạt
         [HttpGet]
         [Route("api/NguoiDung/NopPhat")]
-        public bool Post([FromBody] HoaDon hoaDon)
+        public HoaDon Post([FromBody] HoaDon hoaDon)
         {
             return hoaDonRepository.addHoaDon(hoaDon);
         }

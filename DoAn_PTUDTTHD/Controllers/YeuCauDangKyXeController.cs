@@ -22,7 +22,7 @@ namespace DoAn_PTUDTTHD.Controllers
 
         // POST api/loaixe
 
-        public bool Post([FromBody] YeuCauDangKyXe yeuCauDangKyXe)
+        public YeuCauDangKyXe Post([FromBody] YeuCauDangKyXe yeuCauDangKyXe)
         {
             return yeuCauDangKyXeRepository.addYeuCauDangKyXe(yeuCauDangKyXe);
         }

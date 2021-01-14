@@ -22,7 +22,7 @@ namespace DoAn_PTUDTTHD.Controllers
 
         // POST api/hoadon
 
-        public bool Post([FromBody] HoaDon hoaDon)
+        public HoaDon Post([FromBody] HoaDon hoaDon)
         {
             return hoaDonRepository.addHoaDon(hoaDon);
         }
