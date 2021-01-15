@@ -13,7 +13,7 @@
           <Property Name="Hang" Type="varchar" MaxLength="10" />
           <Property Name="NgayCap" Type="datetime" />
           <Property Name="NoiCap" Type="nvarchar" MaxLength="100" />
-          <Property Name="SoBangLai" Type="varchar" MaxLength="20" />
+          <Property Name="SoBangLai" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="NguoiDung_id" Type="int" />
         </EntityType>
         <EntityType Name="BienBanViPham">
@@ -34,7 +34,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ten" Type="nvarchar" MaxLength="50" />
           <Property Name="Bac" Type="int" />
-          <Property Name="username" Type="varchar" MaxLength="20" />
+          <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="DanhSachViPham">
@@ -107,7 +107,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ten" Type="nvarchar" MaxLength="50" />
-          <Property Name="CMND" Type="varchar" MaxLength="10" />
+          <Property Name="CMND" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="GioiTinh" Type="nvarchar" MaxLength="5" />
           <Property Name="NgaySinh" Type="datetime" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
@@ -119,20 +119,20 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SoKhung" Type="varchar" MaxLength="10" />
-          <Property Name="SoMay" Type="varchar" MaxLength="10" />
+          <Property Name="SoKhung" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SoMay" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="GiaTien" Type="decimal" Precision="18" Scale="0" />
           <Property Name="LoaiXe_id" Type="int" />
           <Property Name="NguoiDung_id" Type="int" />
-          <Property Name="BienSo" Type="varchar" MaxLength="50" />
+          <Property Name="BienSo" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="YeuCauDangKyXe">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SoKhung" Type="varchar" MaxLength="10" />
-          <Property Name="SoMay" Type="varchar" MaxLength="10" />
+          <Property Name="SoKhung" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SoMay" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="GiaTien" Type="decimal" Precision="18" Scale="0" />
           <Property Name="NgayHen" Type="datetime" />
           <Property Name="TrangThai" Type="nvarchar" MaxLength="25" />
@@ -411,7 +411,7 @@
           <Property Name="Hang" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="NgayCap" Type="DateTime" Precision="3" />
           <Property Name="NoiCap" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="SoBangLai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SoBangLai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NguoiDung_id" Type="Int32" />
           <NavigationProperty Name="NguoiDung" Relationship="Self.fk_banglai_nguoidung" FromRole="BangLai" ToRole="NguoiDung" />
           <NavigationProperty Name="BienBanViPhams" Relationship="Self.fk_Bl_bb" FromRole="BangLai" ToRole="BienBanViPham" />
@@ -437,7 +437,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Bac" Type="Int32" />
-          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="YeuCauDangKyXes" Relationship="Self.fk_canbo" FromRole="CanBo" ToRole="YeuCauDangKyXe" />
         </EntityType>
@@ -513,7 +513,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CMND" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CMND" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="GioiTinh" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="NgaySinh" Type="DateTime" Precision="3" />
           <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -528,12 +528,12 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SoKhung" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="SoMay" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SoKhung" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SoMay" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="GiaTien" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="LoaiXe_id" Type="Int32" />
           <Property Name="NguoiDung_id" Type="Int32" />
-          <Property Name="BienSo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BienSo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LoaiXe" Relationship="Self.fk_xe_loai" FromRole="Xe" ToRole="LoaiXe" />
           <NavigationProperty Name="NguoiDung" Relationship="Self.fk_nguoidung_xe" FromRole="Xe" ToRole="NguoiDung" />
         </EntityType>
@@ -542,8 +542,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SoKhung" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="SoMay" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SoKhung" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SoMay" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="GiaTien" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="NgayHen" Type="DateTime" Precision="3" />
           <Property Name="TrangThai" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />

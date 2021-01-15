@@ -46,6 +46,35 @@ namespace DoAn_PTUDTTHD.Repository
                 return null;
             }
         }
+        public BienBanViPham findById(int id)
+        {
+            using (var db = new QLHTGTEntities())
+            {
+                BienBanViPham bienBanViPham = db.BienBanViPhams.Include("HoaDon").Include("LoiViPhams").Where(b => b.ID == id).FirstOrDefault();
+                if (bienBanViPham != null) return bienBanViPham;
+            }
+            return null;
+        }
+        public bool updateHDNopPhat_BienBanViPham(BienBanViPham bienBan)
+        {
+            using (var db = new QLHTGTEntities())
+            {
+                try
+                {
+                    BienBanViPham bienBanUpdate = db.BienBanViPhams.Find(bienBan.ID);
+                    if (bienBan == null)
+                        return false;
+                    bienBanUpdate.HDNopPhat = bienBan.HDNopPhat;
+                    if (db.SaveChanges() > 0)
+                        return true;
+                    else return false;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
 
+        }
     }
 }

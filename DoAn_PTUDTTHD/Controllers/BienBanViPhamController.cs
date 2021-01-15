@@ -28,5 +28,16 @@ namespace DoAn_PTUDTTHD.Controllers
         {
             return bienBanViPhamRepository.findByNguoiDung(nguoiDung_id);
         }
+        //Get by id BienBanViPham
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("api/BienBanViPham/GetById")]
+        public BienBanViPham GetById(int id)
+        {
+            return bienBanViPhamRepository.findById(id);
+        }
+        public bool Put([FromBody] BienBanViPham bienBan)
+        {
+            return bienBanViPhamRepository.updateHDNopPhat_BienBanViPham(bienBan);
+        }
     }
 }
