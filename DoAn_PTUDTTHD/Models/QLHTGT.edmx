@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QLHTGTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QLHTGTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BangLai">
           <Key>
             <PropertyRef Name="ID" />
@@ -12,7 +12,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Hang" Type="varchar" MaxLength="10" />
           <Property Name="NgayCap" Type="datetime" />
-          <Property Name="NoiCap" Type="varchar" MaxLength="100" />
+          <Property Name="NoiCap" Type="nvarchar" MaxLength="100" />
           <Property Name="SoBangLai" Type="varchar" MaxLength="20" />
           <Property Name="NguoiDung_id" Type="int" />
         </EntityType>
@@ -135,7 +135,7 @@
           <Property Name="SoMay" Type="varchar" MaxLength="10" />
           <Property Name="GiaTien" Type="decimal" Precision="18" Scale="0" />
           <Property Name="NgayHen" Type="datetime" />
-          <Property Name="TrangThai" Type="varchar" MaxLength="25" />
+          <Property Name="TrangThai" Type="nvarchar" MaxLength="25" />
           <Property Name="HDTruocBa" Type="int" />
           <Property Name="HDCapBien" Type="int" />
           <Property Name="NguoiDung_id" Type="int" />
@@ -399,8 +399,7 @@
             <End Role="Xe" EntitySet="Xe" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLHTGTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -411,7 +410,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Hang" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="NgayCap" Type="DateTime" Precision="3" />
-          <Property Name="NoiCap" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NoiCap" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="SoBangLai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="NguoiDung_id" Type="Int32" />
           <NavigationProperty Name="NguoiDung" Relationship="Self.fk_banglai_nguoidung" FromRole="BangLai" ToRole="NguoiDung" />
@@ -547,7 +546,7 @@
           <Property Name="SoMay" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="GiaTien" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="NgayHen" Type="DateTime" Precision="3" />
-          <Property Name="TrangThai" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="TrangThai" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="HDTruocBa" Type="Int32" />
           <Property Name="HDCapBien" Type="Int32" />
           <Property Name="NguoiDung_id" Type="Int32" />

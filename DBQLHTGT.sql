@@ -12,11 +12,11 @@ go
 
 create table YeuCauDangKyXe(
 	ID int primary KEY IDENTITY,
-	SoKhung varchar(10),
-	SoMay varchar(10),
+	SoKhung varchar(10) NOT NULL UNIQUE,
+	SoMay varchar(10) NOT NULL UNIQUE,
 	GiaTien DECIMAL,
 	NgayHen DATETIME,
-	TrangThai varchar(25),
+	TrangThai nvarchar(25),
 	HDTruocBa INT,
 	HDCapBien INT,
 	NguoiDung_id INT,
@@ -30,7 +30,7 @@ go
 create table NguoiDung(
 	ID int primary KEY IDENTITY,
 	Ten nvarchar(50),
-	CMND varchar(10),
+	CMND varchar(10) NOT NULL UNIQUE, 
 	GioiTinh nvarchar(5),
 	NgaySinh DATETIME,
 	DiaChi nvarchar(100),
@@ -41,12 +41,12 @@ go
 
 create table Xe(
 	ID int primary KEY IDENTITY,
-	SoKhung varchar(10),
-	SoMay varchar(10),
+	SoKhung varchar(10) NOT NULL UNIQUE,
+	SoMay varchar(10) NOT NULL UNIQUE,
 	GiaTien DECIMAL,
 	LoaiXe_id INT,
 	NguoiDung_id INT,
-	BienSo varchar(50)
+	BienSo varchar(50) NOT NULL UNIQUE
 )
 go
 
@@ -98,7 +98,7 @@ create table CanBo(
 	ID int primary KEY IDENTITY,
 	Ten nvarchar(50),
 	Bac int,
-	[username] varchar(20),
+	[username] varchar(20) NOT NULL UNIQUE,
 	[password] varchar(20)
 )
 go
@@ -107,8 +107,8 @@ create table BangLai(
 	ID int primary KEY IDENTITY,
 	Hang varchar(10),
 	NgayCap DATETIME,
-	NoiCap varchar(100),
-	SoBangLai varchar(20),
+	NoiCap nvarchar(100),
+	SoBangLai varchar(20) NOT NULL UNIQUE,
 	NguoiDung_id INT
 )
 go
@@ -147,8 +147,8 @@ ALTER TABLE dbo.BienBanViPham ADD CONSTRAINT fk_Bl_bb FOREIGN KEY (BangLai_id) R
 -----------------Data
 INSERT INTO [dbo].[NguoiDung] ([Ten], [CMND], [GioiTinh], [NgaySinh], [DiaChi], [username], [password]) VALUES (N'test1', N'231144149', N'Nữ', N'2021-01-08 08:58:31', N'Tp.HCM', N'test1', N'123')
 INSERT INTO [dbo].[NguoiDung] ([Ten], [CMND], [GioiTinh], [NgaySinh], [DiaChi], [username], [password]) VALUES (N'test2', N'231144159', N'Nam', N'2021-01-08 08:58:31', N'Tp.HCM', N'test2', N'123')
-INSERT INTO [dbo].[BangLai] ([Hang], [NgayCap], [NoiCap], [SoBangLai], [NguoiDung_id]) VALUES (N'A3', N'2020-01-08 08:58:31', N'TP HCM', N'21312377', 2)
-INSERT INTO [dbo].[BangLai] ([Hang], [NgayCap], [NoiCap], [SoBangLai], [NguoiDung_id]) VALUES (N'B2', N'2020-03-08 08:58:31', N'TP HCM', N'21312326', 2)
+INSERT INTO [dbo].[BangLai] ([Hang], [NgayCap], [NoiCap], [SoBangLai], [NguoiDung_id]) VALUES (N'A3', N'2020-01-08 08:58:31', N'TP.hCM', N'21312377', 2)
+INSERT INTO [dbo].[BangLai] ([Hang], [NgayCap], [NoiCap], [SoBangLai], [NguoiDung_id]) VALUES (N'B2', N'2020-03-08 08:58:31', N'TP.hCM', N'21312326', 2)
 INSERT INTO dbo.CanBo
         ( Ten, Bac, username, password )
 VALUES  ( N'CanBo1', -- Ten - nvarchar(50)
